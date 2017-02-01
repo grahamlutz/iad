@@ -34,3 +34,47 @@
 /*
  *  Logged Out Homepage
  */
+
+ .slider-section {
+   margin: 40px 0;
+   padding: 40px;
+   background-color: #d2d0d0;
+ }
+
+ .slider-section .content-container {
+    text-align: center;
+}
+
+.facebook-login-container {
+  width: 45%;
+  float: left;
+  text-align: center;
+}
+
+.or-divider {
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+}
+
+.wordpress-login-container {
+  width: 45%;
+  float: right;
+  text-align: center;
+}
+
+.photo-uploaded-container {
+  width: 40%;
+  float: left
+}
+
+.filter-conteiner {
+  width: 10%;
+  display: inline-block;
+}
+
+.pet-profile-container {
+  width: 50%;
+  float: right;
+  display: inline-block;
+}

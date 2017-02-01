@@ -14,12 +14,14 @@ get_header(); ?>
 		<main id="logged-out-home" class="site-main" role="main">
 
       <div class="slider-section get-started-section">
-          <p>Congratulations - It's a dog!</p>
+				<div class="content-container">
+					<p>Congratulations - It's a dog!</p>
           <p>Sign up and share your It's a Dog! pet registry</p>
           <p>and enter to win our sweepstakes.</p>
           <button type="button" name="get-started-btn">Get Started</button>
           <p>or</p>
           <button type="button" name="login-btn">Login</button>
+				</div>
       </div>
 
       <div class="slider-section login-register-section">
