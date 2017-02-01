@@ -1,3 +1,8 @@
+# Custom #
+############
+docker-compose-wordpress
+.data
+
 # codekit #
 ###########
 .sass-cache/
