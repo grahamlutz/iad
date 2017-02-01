@@ -26,7 +26,7 @@ get_header(); ?>
 
       <div class="slider-section login-register-section">
         <div class="facebook-login-container">
-          [fbl_login_widget hide_if_logged="false" redirect=""]
+          <?php do_action('facebook_login_button');?>
         </div>
         <div class="or-divider">
           <p>or</p>
