@@ -1,0 +1,36 @@
+/*
+ *  Globals
+ */
+
+/*
+ *  Header
+ */
+
+ #masthead {
+    width: 90%;
+    margin: 0 auto;
+}
+
+ .site-branding {
+     float: left;
+ }
+
+ .main-navigation {
+     clear: none;
+     display: block;
+     float: none;
+     width: 80%;
+     margin: 15px auto;
+ }
+
+ .main-navigation li {
+     margin: 0 50px;
+ }
+
+/*
+ *  Page Content
+ */
+
+/*
+ *  Logged Out Homepage
+ */
