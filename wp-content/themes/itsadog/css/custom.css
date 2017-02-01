@@ -39,6 +39,7 @@
    margin: 40px 0;
    padding: 40px;
    background-color: #d2d0d0;
+   overflow: hidden;
  }
 
  .slider-section .content-container {
@@ -55,6 +56,14 @@
   width: 10%;
   display: inline-block;
   text-align: center;
+}
+
+.or-divider hr {
+    color: black;
+    background-color: black;
+    border: 0;
+    height: 100px;
+    margin-bottom: 1.5em;
 }
 
 .wordpress-login-container {
