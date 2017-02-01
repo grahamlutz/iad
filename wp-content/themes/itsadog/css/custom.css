@@ -63,14 +63,30 @@
   text-align: center;
 }
 
-.photo-uploaded-container {
-  width: 40%;
-  float: left
+.photo-upload-container {
+  width: 37%;
+  float: left;
+  background: #dadada;
+  margin: 20px;
+  text-align: center;
+  padding: 100px;
 }
 
-.filter-conteiner {
+.photo-upload-container i {
+    color: white;
+    font-size: 125px;
+}
+
+.filter-container {
   width: 10%;
   display: inline-block;
+}
+
+.filter-icon {
+  width: 75px;
+  height: 75px;
+  margin: 10px 0;
+  background: white;
 }
 
 .pet-profile-container {

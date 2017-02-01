@@ -37,11 +37,24 @@ get_header(); ?>
       </div>
 
       <div class="slider-section add-dog-seciton">
-        <div class="photo-uploaded-container">
-
+        <div class="photo-upload-container">
+					<i class="fa fa-plus" aria-hidden="true"></i>
+					<p>Upload a photo of your dog</p>
         </div>
-        <div class="filter-conteiner">
+        <div class="filter-container">
+					<p>set filter</p>
+					<div class="filter-icon filter-1">
 
+					</div>
+					<div class="filter-icon filter-2">
+
+					</div>
+					<div class="filter-icon filter-3">
+
+					</div>
+					<div class="filter-icon filter-4">
+
+					</div>
         </div>
         <div class="pet-profile-container">
           <h2>Pet Profile</h2>
