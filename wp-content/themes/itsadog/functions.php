@@ -154,9 +154,9 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 
  require get_template_directory() . '/custom-post-types/dog.php';
- 
+
  /**
   * Set Default User Role
   */
 
-update_option('default_role','editor');
+//update_option('default_role','editor');
