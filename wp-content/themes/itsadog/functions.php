@@ -159,4 +159,4 @@ require get_template_directory() . '/inc/jetpack.php';
   * Set Default User Role
   */
 
-//update_option('default_role','editor');
+// update_option('default_role','editor');

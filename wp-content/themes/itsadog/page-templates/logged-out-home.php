@@ -8,7 +8,9 @@
  * @package itsadog
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 	<div id="primary" class="content-area">
 		<main id="logged-out-home" class="site-main" role="main">
@@ -36,7 +38,7 @@ get_header(); ?>
         </div>
         <div class="wordpress-login-container">
 					<h3>Create Your Owner Profile</h3>
-          <?php wp_login_form(); ?>
+          <?php echo do_shortcode( '[rp_register_widget]' ); ?>
         </div>
       </div>
 

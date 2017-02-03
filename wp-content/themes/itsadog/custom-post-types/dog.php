@@ -126,6 +126,7 @@ function dog_age_box_content( $post ) {
 }
 
 function dog_weight_box_content( $post ) {
+
  wp_nonce_field( plugin_basename( __FILE__ ), 'dog_box_content_nonce' );
  ?>
  <label for="dog-weight"><?php _e( "Add dog's weight.", 'example' ); ?></label>
@@ -159,4 +160,5 @@ function save_dog_boxes( $post_id ) {
  update_post_meta( $post_id, 'dog_year', $dog_year );
  $dog_breed = $_POST['dog-breed'];
  update_post_meta( $post_id, 'dog_breed', $dog_breed );
+
 }
