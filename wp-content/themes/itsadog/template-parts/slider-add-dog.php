@@ -48,7 +48,7 @@ acf_form_head();
 		The above 'post_id' setting must contain a value of 'new_post' */
 		'new_post' => array(
 						'post_type'		=> 'dog',
-						'post_status'		=> 'draft'
+						'post_status'		=> 'published'
 					),
 		
 		/* (array) An array of field group IDs/keys to override the fields displayed in this form */
@@ -58,7 +58,7 @@ acf_form_head();
 		//'fields' => array(1,2,3,4),
 		
 		/* (boolean) Whether or not to show the post title text field. Defaults to false */
-		'post_title' => false,
+		'post_title' => true,
 		
 		/* (boolean) Whether or not to show the post content editor field. Defaults to false */
 		'post_content' => false,
