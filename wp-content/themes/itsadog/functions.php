@@ -156,7 +156,22 @@ require get_template_directory() . '/inc/jetpack.php';
  require get_template_directory() . '/custom-post-types/dog.php';
 
  /**
-  * Set Default User Role
+  * Security Fix for Advanced Custom Fields
   */
 
-// update_option('default_role','editor');
+function my_kses_post( $value ) {
+	
+	// is array
+	if( is_array($value) ) {
+	
+		return array_map('my_kses_post', $value);
+	
+	}
+	
+	
+	// return
+	return wp_kses_post( $value );
+
+}
+
+add_filter('acf/update_value', 'my_kses_post', 10, 1);
