@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Logged Out Homepage
+ * Template Name: Homepage
  * Description: Page template without sidebar
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
@@ -17,15 +17,11 @@ get_header();
 
       <?php
 
-      get_template_part( 'template-parts/slider', 'get-started' );
-
-      get_template_part( 'template-parts/slider', 'registration' );
-
-      get_template_part( 'template-parts/slider', 'add-dog' );
-
-      get_template_part( 'template-parts/slider', 'registry' );
-
-      get_template_part( 'template-parts/slider', 'social' );
+      if ( is_user_logged_in() ) {
+          get_template_part( 'template-parts/dashboard' );
+      } else {
+          get_template_part( 'template-parts/slider' );
+      }
 
       ?>
 
