@@ -118,6 +118,7 @@ function itsadog_scripts() {
 add_action( 'wp_enqueue_scripts', 'itsadog_scripts' );
 
 function itsadog_custom_scripts() {
+	//wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array() );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array() );
 	wp_enqueue_style( 'itsadog-custom-style', get_template_directory_uri() . '/css/custom.css', array() );
 	wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom.js', array( 'jquery' ) );
