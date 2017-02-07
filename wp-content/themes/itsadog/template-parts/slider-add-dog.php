@@ -7,8 +7,6 @@
  * @package itsadog
  */
 
-acf_form_head(); 
-
 ?>
 
 <div class="slider-section add-dog-seciton">
@@ -48,7 +46,7 @@ acf_form_head();
 		The above 'post_id' setting must contain a value of 'new_post' */
 		'new_post' => array(
 						'post_type'		=> 'dog',
-						'post_status'		=> 'published'
+						'post_status'		=> 'draft'
 					),
 		
 		/* (array) An array of field group IDs/keys to override the fields displayed in this form */
@@ -80,7 +78,7 @@ acf_form_head();
 		'html_after_fields' => '',
 		
 		/* (string) The text displayed on the submit button */
-		'submit_value' => __("Update", 'acf'),
+		'submit_value' => __("Add Dog", 'acf'),
 		
 		/* (string) A message displayed above the form after being redirected. Can also be set to false for no message */
 		'updated_message' => __("Post updated", 'acf'),

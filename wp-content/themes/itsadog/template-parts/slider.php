@@ -11,8 +11,6 @@
 
 <?php
 
-	acf_form_head(); 
-
 	get_template_part( 'template-parts/slider', 'get-started' );
 
 	get_template_part( 'template-parts/slider', 'registration' );
