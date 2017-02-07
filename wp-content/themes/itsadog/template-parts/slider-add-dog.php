@@ -38,7 +38,7 @@ acf_form_head();
 	  $options = array(
 
 		/* (string) Unique identifier for the form. Defaults to 'acf-form' */
-		'id' => 'acf-form',
+		'id' => 'add-dog-form',
 		
 		/* (int|string) The post ID to load data from and save data to. Defaults to the current post ID. 
 		Can also be set to 'new_post' to create a new post on submit */
@@ -55,7 +55,7 @@ acf_form_head();
 		'field_groups' => false,
 		
 		/* (array) An array of field IDs/keys to override the fields displayed in this form */
-		'fields' => false,
+		//'fields' => array(1,2,3,4),
 		
 		/* (boolean) Whether or not to show the post title text field. Defaults to false */
 		'post_title' => false,
@@ -106,7 +106,7 @@ acf_form_head();
 		
 	);
 
-	  acf_form();
+	  acf_form( $options );
 
 	  ?>
 	</div> <!-- pet-profile-container -->
