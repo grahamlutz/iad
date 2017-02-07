@@ -29,22 +29,3 @@ function custom_post_dog() {
 add_action( 'init', 'custom_post_dog' );
 
 
-
-add_action( 'save_post', 'save_dog_boxes', 999 );
-function save_dog_boxes( $post_id ) {
-
- if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
- return;
-
- if ( !wp_verify_nonce( $_POST['dog_box_content_nonce'], plugin_basename( __FILE__ ) ) )
- return;
-
- if ( 'page' == $_POST['dog'] ) {
-   if ( !current_user_can( 'edit_page', $post_id ) )
-   return;
- } else {
-   if ( !current_user_can( 'edit_post', $post_id ) )
-   return;
- }
-
-}
