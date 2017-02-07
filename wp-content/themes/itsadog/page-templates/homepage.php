@@ -17,7 +17,7 @@ get_header();
 
       <?php
 
-      if ( is_user_logged_in() ) {
+      if ( is_user_logged_in() ) { // AND Has Dog AND is entered in sweepstakes
           get_template_part( 'template-parts/dashboard' );
       } else {
           get_template_part( 'template-parts/slider' );
