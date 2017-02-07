@@ -67,7 +67,7 @@ acf_form_head();
 		'form' => true,
 		
 		/* (array) An array or HTML attributes for the form element */
-		'form_attributes' => array(),
+		//'form_attributes' => array(),
 		
 		/* (string) The URL to be redirected to after the form is submit. Defaults to the current URL with a GET parameter '?updated=true'.
 		A special placeholder '%post_url%' will be converted to post's permalink (handy if creating a new post) */
