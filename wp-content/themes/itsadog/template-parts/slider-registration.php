@@ -21,6 +21,17 @@
   </div>
   <div class="wordpress-login-container">
 		<h3>Create Your Owner Profile</h3>
-    <?php echo do_shortcode( '[rp_register_widget]' ); ?>
+    <?php 
+
+    // If user clicked "Get Started"
+    echo do_shortcode( '[rp_register_widget]' ); 
+
+    // If user clicked "Login"
+
+    // wp_login_form(array(
+    //                 'form_id'  =>  'iad-wp-user-login',
+    //               ));
+
+    ?>
   </div>
 </div>
