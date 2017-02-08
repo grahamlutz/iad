@@ -104,17 +104,17 @@
 		
 	);
 
-	  acf_form( $options );
+	acf_form( $options );
 
-	  acf_enqueue_uploader(); ?>
-		<script type="text/javascript">
-		(function($) {
-			
-			// setup fields
-			acf.do_action('append', $('#popup-id'));
-			
-		});
-		</script>
+	acf_enqueue_uploader(); ?>
+	<script type="text/javascript">
+	(function($) {
+		
+		// setup fields
+		acf.do_action('append', $('#popup-id'));
+		
+	});
+</script>
 
 	</div> <!-- pet-profile-container -->
 </div> <!-- slider-section -->
