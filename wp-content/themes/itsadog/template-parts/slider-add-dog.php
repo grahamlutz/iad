@@ -50,6 +50,8 @@
 					),
 		
 		/* (array) An array of field group IDs/keys to override the fields displayed in this form */
+		/* 38 is for localhost, 22 is for production */
+		/* It would be nice to have a dynamic way of doing this... */
 		'field_groups' => false,
 		
 		/* (array) An array of field IDs/keys to override the fields displayed in this form */

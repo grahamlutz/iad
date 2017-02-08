@@ -191,4 +191,3 @@ function acf_set_featured_image( $value, $post_id, $field  ){
 
 add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
  
-
