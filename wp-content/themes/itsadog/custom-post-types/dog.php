@@ -23,6 +23,7 @@ function custom_post_dog() {
     'menu_position' => 5,
     'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
     'has_archive'   => true,
+    'hierarchical'  => true,
   );
   register_post_type( 'dog', $args );
 }
