@@ -21,7 +21,8 @@ function custom_post_dog() {
     'description'   => 'Holds our dogs and dog specific data',
     'public'        => true,
     'menu_position' => 5,
-    'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+    'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'page-attributes' ),
+    'taxonomies'    => array( 'category' ),
     'has_archive'   => true,
     'hierarchical'  => true,
   );
