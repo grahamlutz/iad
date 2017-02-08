@@ -97,7 +97,7 @@
 		
 		/* (string) Whether to use the WP uploader or a basic input for image and file fields. Defaults to 'wp' 
 		Choices of 'wp' or 'basic'. Added in v5.2.4 */
-		'uploader' => 'wp',
+		'uploader' => 'basic',
 		
 		/* (boolean) Whether to include a hidden input field to capture non human form submission. Defaults to true. Added in v5.3.4 */
 		'honeypot' => true
@@ -106,7 +106,16 @@
 
 	  acf_form( $options );
 
-	  ?>
+	  acf_enqueue_uploader(); ?>
+		<script type="text/javascript">
+		(function($) {
+			
+			// setup fields
+			acf.do_action('append', $('#popup-id'));
+			
+		});
+		</script>
+
 	</div> <!-- pet-profile-container -->
 </div> <!-- slider-section -->
 
