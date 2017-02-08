@@ -17,7 +17,7 @@ get_header();
 
       <?php
 
-      function user_has_posts($user_id) {
+      function user_has_dog($user_id) {
         $result = new WP_Query(array(
           'author'=>$user_id,
           'post_type'=>'dog',
@@ -27,7 +27,7 @@ get_header();
         return (count($result->posts)!=0);
       }
 
-      if ( is_user_logged_in() && user_has_posts($user->ID) ) { // AND is entered in sweepstakes
+      if ( is_user_logged_in() ) { // && user_has_dog($user->ID) && is entered in sweepstakes
           get_template_part( 'template-parts/dashboard' );
       } else {
           get_template_part( 'template-parts/slider' );
