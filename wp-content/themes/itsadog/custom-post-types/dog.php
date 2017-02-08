@@ -28,33 +28,52 @@ function custom_post_dog() {
 }
 add_action( 'init', 'custom_post_dog' );
 
-//add_action( 'add_meta_boxes', 'dog_details_box' );
+add_action( 'add_meta_boxes', 'dog_details_box' );
 
 function dog_details_box() {
+    // add_meta_box(
+    //     'dog_age_box',
+    //     'Dog\'s Birthday',
+    //     'dog_age_box_content',
+    //     'dog',
+    //     'normal',
+    //     'low'
+    // );
+    // add_meta_box(
+    //     'dogs_weight_box',
+    //     'Dog\'s Weight',
+    //     'dog_weight_box_content',
+    //     'dog',
+    //     'normal',
+    //     'low'
+    // );
+    // add_meta_box(
+    //     'dogs_breed_box',
+    //     'Dog\'s Breed',
+    //     'dog_breed_box_content',
+    //     'dog',
+    //     'normal',
+    //     'low'
+    // );
     add_meta_box(
-        'dog_age_box',
-        'Dog\'s Birthday',
-        'dog_age_box_content',
+        'winner_picker',
+        'Winner!',
+        'winner_box_content',
         'dog',
         'normal',
-        'low'
+        'high'
     );
-    add_meta_box(
-        'dogs_weight_box',
-        'Dog\'s Weight',
-        'dog_weight_box_content',
-        'dog',
-        'normal',
-        'low'
-    );
-    add_meta_box(
-        'dogs_breed_box',
-        'Dog\'s Breed',
-        'dog_breed_box_content',
-        'dog',
-        'normal',
-        'low'
-    );
+
+}
+
+function winner_box_content( $post ) {
+  wp_nonce_field( plugin_basename( __FILE__ ), 'dog_box_content_nonce' );
+ ?>
+ <label for="dog-winner">Is this dog a winner?</label>
+  <br />
+  <input type="checkbox" name="dog-winner" id="dog-winner" value="<?php echo esc_attr( get_post_meta( $post->ID, 'dog_winner', true ) ); ?>" placeholder="<?php echo esc_attr( get_post_meta( $post->ID, 'dog_winner', true ) ); ?>" size="30" />
+ <?php
+
 }
 
 function dog_breed_box_content( $post ) {
