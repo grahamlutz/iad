@@ -28,7 +28,8 @@ function custom_post_dog() {
 }
 add_action( 'init', 'custom_post_dog' );
 
-add_action( 'add_meta_boxes', 'dog_details_box' );
+//add_action( 'add_meta_boxes', 'dog_details_box' );
+
 function dog_details_box() {
     add_meta_box(
         'dog_age_box',
