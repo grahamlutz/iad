@@ -157,6 +157,12 @@ require get_template_directory() . '/inc/jetpack.php';
  require get_template_directory() . '/custom-post-types/dog.php';
 
 /**
+ * Item Custom Post Type
+ */
+
+ require get_template_directory() . '/custom-post-types/item.php';
+
+/**
 * Security Fix for Advanced Custom Fields
 */
 
