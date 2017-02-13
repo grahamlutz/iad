@@ -22,10 +22,27 @@ function custom_post_registry_product() {
     'public'        => true,
     'menu_position' => 5,
     'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'page-attributes' ),
-    'taxonomies'    => array( 'category' ),
+    'taxonomies'    => array( 'registry_product_categories' ),
     'has_archive'   => true,
     'hierarchical'  => true,
   );
   register_post_type( 'registry_product', $args );
 }
 add_action( 'init', 'custom_post_registry_product' );
+
+function registry_product_category() {  
+    register_taxonomy(  
+        'registry_product_categories',  //The name of the taxonomy. 
+        'registry_product',        //post type name
+        array(  
+            'hierarchical' => true,  
+            'label' => 'Categories',  //Display name
+            'query_var' => true,
+            'rewrite' => array(
+                'slug' => 'themes', // This controls the base slug that will display before each term
+                'with_front' => false // Don't display the category base before 
+            )
+        )  
+    );  
+}  
+add_action( 'init', 'registry_product_category');
