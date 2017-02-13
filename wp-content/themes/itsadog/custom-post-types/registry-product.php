@@ -46,3 +46,24 @@ function registry_product_category() {
     );  
 }  
 add_action( 'init', 'registry_product_category');
+
+function fetch_amazon_data( $post_id ) {
+
+ if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+ return;
+
+ if ( 'page' == $_POST['registry_product'] ) {
+   if ( !current_user_can( 'edit_page', $post_id ) )
+   return;
+ } else {
+   if ( !current_user_can( 'edit_post', $post_id ) )
+   return;
+ }
+
+ // Use Amazon API to get product info based on product URL.
+
+ // $item_image = image returned from API
+ // update_post_meta( $post_id, 'item_image', $item_image );
+
+}
+add_action( 'save_post', 'fetch_amazon_data', 999 );
