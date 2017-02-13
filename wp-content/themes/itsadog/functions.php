@@ -160,7 +160,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * Item Custom Post Type
  */
 
- require get_template_directory() . '/custom-post-types/item.php';
+ require get_template_directory() . '/custom-post-types/registry-product.php';
 
 /**
 * Security Fix for Advanced Custom Fields
