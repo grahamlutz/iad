@@ -167,13 +167,13 @@ require get_template_directory() . '/inc/jetpack.php';
 */
 
 function my_kses_post( $value ) {
-	
+
 	// is array
 	if( is_array($value) ) {
 		return array_map('my_kses_post', $value);
 	}
-	
-	
+
+
 	// return
 	return wp_kses_post( $value );
 
@@ -186,14 +186,13 @@ add_filter('acf/update_value', 'my_kses_post', 10, 1);
   */
 
 function acf_set_featured_image( $value, $post_id, $field  ){
-    
+
     if($value != ''){
 	    //Add the value which is the image ID to the _thumbnail_id meta data for the current post
-	    add_post_meta($post_id, '_thumbnail_id', $value);
+	    update_post_meta($post_id, '_thumbnail_id', $value);
     }
- 
+
     return $value;
 }
 
 add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
- 
