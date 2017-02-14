@@ -56,13 +56,6 @@ function fetch_amazon_data( $meta_id, $post_id, $meta_key, $meta_value) {
 
     if($meta_key != 'asin_code' || empty($meta_value)) {
       return;
-    } else {
-      //because this is called before updating post meta the old value will still be in database.
-      $old_asin_code = get_post_meta($post_id, 'asin_code', true);
-      if($old_asin_code == $meta_value) {
-        //don't do anything if the ASIN has not changed.
-        return;
-      }
     }
 
     // Code to run when saving custom post type registry_product
@@ -83,4 +76,5 @@ function fetch_amazon_data( $meta_id, $post_id, $meta_key, $meta_value) {
     update_post_meta( $post_id, 'item_image_url', $item_image_url);
 }
 
-add_action( 'update_post_meta', 'fetch_amazon_data', 10, 4);
+add_action( 'updated_post_meta', 'fetch_amazon_data', 10, 4);
+add_action( 'added_post_meta', 'fetch_amazon_data', 10, 4);
