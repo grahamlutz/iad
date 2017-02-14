@@ -52,35 +52,35 @@ add_action( 'init', 'registry_product_category');
 function fetch_amazon_data( $meta_id, $post_id, $meta_key, $meta_value) {
 
     //TODO: also check for valid asin_code
-    if($meta_key != 'asin_code') {
+
+
+    if($meta_key != 'asin_code' || empty($meta_value)) {
       return;
+    } else {
+      //because this is called before updating post meta the old value will still be in database.
+      $old_asin_code = get_post_meta($post_id, 'asin_code', true);
+      if($old_asin_code == $meta_value) {
+        //don't do anything if the ASIN has not changed.
+        return;
+      }
     }
 
     // Code to run when saving custom post type registry_product
     $item = new AmazonProductAPI();
-    // B01BSMAUHQ is the ASIN for some dog blanket. Only Run this is valid ASIN as argument.
-    // Get this to dynamically use a custom fields with Item ASIN.
-    $asin_value = $meta_value;
-    if(empty($asin_value)) {
+    try {
+      $result = $item->getProductByAsin($meta_value);
+    } catch (Exception $e) {
       return;
     }
-    $result = $item->getProductByAsin($asin_value);
 
-    // Turn XML into Array.
-    $json = json_encode($result);
-    $result_array = json_decode($json, true);
-
-    $post = get_post($post_id);
-    if($post->post_title != $result_array["Items"]["Item"]["ItemAttributes"]["Title"]) {
-      $post->post_title = $result_array["Items"]["Item"]["ItemAttributes"]["Title"];
-      wp_update_post( $post );
-    }
+    $post = array();
+    $post['ID'] = $post_id;
+    $post['post_title'] = (string) $result->Items->Item->ItemAttributes->Title;
+    wp_update_post($post);
 
     // Save item data as custom fields in registry_product post
-    if(get_post_meta($post_id, 'item_image_url', true) != $result_array["Items"]["Item"]["SmallImage"]['URL']) {
-      $item_image_url = $result_array["Items"]["Item"]["SmallImage"]['URL'];
-      update_post_meta( $post_id, 'item_image_url', $item_image_url);
-    }
+    $item_image_url = (string) $result->Items->Item->SmallImage->URL;
+    update_post_meta( $post_id, 'item_image_url', $item_image_url);
 }
 
 add_action( 'update_post_meta', 'fetch_amazon_data', 10, 4);
