@@ -17,9 +17,9 @@
 
 		$args = array( 
             'post_type' => 'registry_product', 
-            'taxonomy' => 'registry_product_categories', 
-            'orderby' => 'id', 
-            'order' => 'ASC' 
+            'taxonomy'  => 'registry_product_categories', 
+            'orderby'   => 'id', 
+            'order'     => 'ASC' 
         );
 
 		$categories = get_categories( $args );
