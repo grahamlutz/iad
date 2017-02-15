@@ -53,29 +53,35 @@ function fetch_amazon_data( $post_id) {
 
     //TODO: also check for valid asin_code
     $asin_code = get_post_meta( $post_id, 'asin_code', true);
-      echo '<pre style="padding-left:300px">';
-      var_dump($asin_code);
-      echo '</pre>';
 
-    // Code to run when saving custom post type registry_product
     $item = new AmazonProductAPI();
     try {
       $result = $item->getProductByAsin($asin_code);
-      echo '<pre style="padding-left:300px">';
-      var_dump($result->Items->Item->SmallImage->URL);
-      echo '</pre>';
     } catch (Exception $e) {
-      echo '<pre style="padding-left:300px">';
-      var_dump($result);
-      echo '</pre>'; 
       return;
     }
 
+    $post = get_post($post_id);
+    if (!$post->post_title) {
+        $post = array();
+        $post['ID'] = $post_id;
+        $post['post_title'] = (string) $result->Items->Item->ItemAttributes->Title;
+        wp_update_post($post);
+    }
+
     // Save item data as custom fields in registry_product post
-    $item_image_url = (string) $result->Items->Item->SmallImage->URL;
-    update_post_meta( $post_id, 'item_image_url', $item_image_url);
-    $item_title = (string) $result->Items->Item->ItemAttributes->Title;
-    update_post_meta( $post_id, 'item_title', $item_title);
+    if (!get_post_meta($post_id, 'item_url', true)) {
+        $item_url = (string) $result->Items->Item->ItemLinks->ItemLink->URL;
+        update_post_meta( $post_id, 'item_url', $item_url);
+    }
+    if (!get_post_meta($post_id, 'item_image_url', true)) {
+        $item_image_url = (string) $result->Items->Item->SmallImage->URL;
+        update_post_meta( $post_id, 'item_image_url', $item_image_url);
+    }
+    if (!get_post_meta($post_id, 'item_title', true)) {
+        $item_title = (string) $result->Items->Item->ItemAttributes->Title;
+        update_post_meta( $post_id, 'item_title', $item_title);
+    }
 }
 
 add_action( 'save_post', 'fetch_amazon_data', 10);
