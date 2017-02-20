@@ -204,27 +204,27 @@ add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
   */
 
 function set_default_registry_product ( $asin_code, $registry_category, $post_id ) {
-        $args = array(
-                  'post_type'   => 'registry_product',
-                  'meta_query'  => array(
-                    array(
-                      'value' => $asin_code
-                    )
-                  )
-                );
+	$args = array(
+	          'post_type'   => 'registry_product',
+	          'meta_query'  => array(
+	            array(
+	              'value' => $asin_code
+	            )
+	          )
+	        );
 
-        // the query
-        $my_query = new WP_Query( $args ); 
+	// the query
+	$my_query = new WP_Query( $args ); 
 
-        $i = 0;
+	$i = 0;
 
-        if( $my_query->have_posts() ) {
-          while( $my_query->have_posts() ) {
-            $my_query->the_post();
-            $id = array( get_the_ID() );
-            update_field( $registry_category, $id, $post_id );
-            $i = $i + 1;
-          } // end while
-        } // end if
-        wp_reset_postdata();
-    };
+	if( $my_query->have_posts() ) {
+	  while( $my_query->have_posts() ) {
+	    $my_query->the_post();
+	    $id = array( get_the_ID() );
+	    update_field( $registry_category, $id, $post_id );
+	    $i = $i + 1;
+	  } // end while
+	} // end if
+	wp_reset_postdata();
+};
