@@ -49,32 +49,39 @@ function registry_product_category() {
 }
 add_action( 'init', 'registry_product_category');
 
-function fetch_amazon_data( $meta_id, $post_id, $meta_key, $meta_value) {
+function fetch_amazon_data( $post_id) {
 
     //TODO: also check for valid asin_code
+    $asin_code = get_post_meta( $post_id, 'asin_code', true);
 
-
-    if($meta_key != 'asin_code' || empty($meta_value)) {
-      return;
-    }
-
-    // Code to run when saving custom post type registry_product
     $item = new AmazonProductAPI();
     try {
-      $result = $item->getProductByAsin($meta_value);
+      $result = $item->getProductByAsin($asin_code);
     } catch (Exception $e) {
       return;
     }
 
-    $post = array();
-    $post['ID'] = $post_id;
-    $post['post_title'] = (string) $result->Items->Item->ItemAttributes->Title;
-    wp_update_post($post);
+    $post = get_post($post_id);
+    if (!$post->post_title) {
+        $post = array();
+        $post['ID'] = $post_id;
+        $post['post_title'] = (string) $result->Items->Item->ItemAttributes->Title;
+        wp_update_post($post);
+    }
 
     // Save item data as custom fields in registry_product post
-    $item_image_url = (string) $result->Items->Item->SmallImage->URL;
-    update_post_meta( $post_id, 'item_image_url', $item_image_url);
+    if (!get_post_meta($post_id, 'item_url', true)) {
+        $item_url = (string) $result->Items->Item->ItemLinks->ItemLink->URL;
+        update_post_meta( $post_id, 'item_url', $item_url);
+    }
+    if (!get_post_meta($post_id, 'item_image_url', true)) {
+        $item_image_url = (string) $result->Items->Item->SmallImage->URL;
+        update_post_meta( $post_id, 'item_image_url', $item_image_url);
+    }
+    if (!get_post_meta($post_id, 'item_title', true)) {
+        $item_title = (string) $result->Items->Item->ItemAttributes->Title;
+        update_post_meta( $post_id, 'item_title', $item_title);
+    }
 }
 
-add_action( 'updated_post_meta', 'fetch_amazon_data', 10, 4);
-add_action( 'added_post_meta', 'fetch_amazon_data', 10, 4);
+add_action( 'save_post', 'fetch_amazon_data', 10);
