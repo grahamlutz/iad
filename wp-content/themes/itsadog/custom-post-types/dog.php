@@ -30,31 +30,58 @@ function custom_post_dog() {
 }
 add_action( 'init', 'custom_post_dog' );
 
+// When dog is created, fill in registry_product custom relationship fields with porducts based on dog size, breed, and age. 
 
-// add_action( 'save_post', 'save_dog_boxes', 999 );
-// function save_dog_boxes( $post_id ) {
+function init_dog_registry( $post_id) {
 
-//  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-//  return;
+    // Set defaults for registry item relationship fields
 
-//  if ( !wp_verify_nonce( $_POST['dog_box_content_nonce'], plugin_basename( __FILE__ ) ) )
-//  return;
+    // $dogs_weight = get_post_meta( $post_id, 'dog_weight', true);
+    // $dogs_age    = get_post_meta( $post_id, 'dog_age', true);
+    // $dogs_breed  = get_post_meta( $post_id, 'dog_breed', true);
 
-//  if ( 'page' == $_POST['dog'] ) {
-//    if ( !current_user_can( 'edit_page', $post_id ) )
-//    return;
-//  } else {
-//    if ( !current_user_can( 'edit_post', $post_id ) )
-//    return;
-//  }
+    // Get the registry_product with the meta_value of B00HRQAUN2
+    $args = array(
+              'post_type'   => 'registry_product',
+              'meta_query'  => array(
+                array(
+                  'value' => 'B00HRQAUN2'
+                )
+              )
+            );
 
-//  $dog_weight = $_POST['dog-weight'];
-//  update_post_meta( $post_id, 'dog_weight', $dog_weight );
-//  $dog_month = $_POST['dog-month'];
-//  update_post_meta( $post_id, 'dog_month', $dog_month );
-//  $dog_year = $_POST['dog-year'];
-//  update_post_meta( $post_id, 'dog_year', $dog_year );
-//  $dog_breed = $_POST['dog-breed'];
-//  update_post_meta( $post_id, 'dog_breed', $dog_breed );
+    // the query
+    $my_query = new WP_Query( $args ); 
 
-// }
+    if( $my_query->have_posts() ) {
+      while( $my_query->have_posts() ) {
+        $my_query->the_post();
+        $id = get_the_ID();
+        update_post_meta( $post_id, 'beds_and_blankets', $id );
+      } // end while
+    } // end if
+    wp_reset_postdata();
+
+    // //Save item data as custom fields in registry_product post
+    // if (!get_post_meta($post_id, 'beds_and_blankets', true)) {
+    // } else {
+    //     return;
+    // }
+
+    // If dog is under 40 lbs..
+
+    // If dog is between 40-80 lbs.
+
+    // If dog is over 80 lbs.
+
+    // If dog is under 2
+
+    // If dog is between 2 and 8.
+
+    // If dog is over 8.
+
+
+
+}
+
+add_action( 'save_post', 'init_dog_registry', 10);
