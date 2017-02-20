@@ -87,6 +87,7 @@
 	    <li></li>
 	    <li></li>
 	  </ul>
+	  <!-- TODO: ajax call to update_user_meta( get_current_user_id(), 'entered_sweepstakes', true ) on button click -->
 	  <button type="button" name="enter-sweepstakes">Enter Sweepstakes</button>
 	  <p class="terms-of-service">*terms of service copy</p>
 	</div>
