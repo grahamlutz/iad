@@ -40,12 +40,12 @@ function init_dog_registry( $post_id) {
     // $dogs_age    = get_post_meta( $post_id, 'dog_age', true);
     // $dogs_breed  = get_post_meta( $post_id, 'dog_breed', true);
 
-    // Get the registry_product with the meta_value of B00HRQAUN2
+    // Get the registry_product with the meta_value of B00M0V7SRU
     $args = array(
               'post_type'   => 'registry_product',
               'meta_query'  => array(
                 array(
-                  'value' => 'B00HRQAUN2'
+                  'value' => 'B00M0V7SRU'
                 )
               )
             );
@@ -53,11 +53,14 @@ function init_dog_registry( $post_id) {
     // the query
     $my_query = new WP_Query( $args ); 
 
+    $i = 0;
+
     if( $my_query->have_posts() ) {
       while( $my_query->have_posts() ) {
         $my_query->the_post();
-        $id = get_the_ID();
-        update_post_meta( $post_id, 'beds_and_blankets', $id );
+        $id = array( get_the_ID() );
+        update_field( 'beds_and_blankets', $id, $post_id );
+        $i = $i + 1;
       } // end while
     } // end if
     wp_reset_postdata();
