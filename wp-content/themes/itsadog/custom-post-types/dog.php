@@ -47,19 +47,12 @@ function init_dog_registry( $post_id) {
         return;
     }
 
-    // If dog is under 40 lbs..
-
-    // If dog is between 40-80 lbs.
-
-    // If dog is over 80 lbs.
-
-    // If dog is under 2
-
-    // If dog is between 2 and 8.
-
-    // If dog is over 8.
-
-
+    // If dog is under 40 lbs...
+    // If dog is between 40-80 lbs...
+    // If dog is over 80 lbs...
+    // If dog is under 2..
+    // If dog is between 2 and 8...
+    // If dog is over 8...
 
 }
 
