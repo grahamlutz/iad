@@ -31,6 +31,13 @@
  *  Page Content
  */
 
+ .ellipsis {
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /*
  *  Logged Out Homepage
  */
@@ -103,3 +110,4 @@
   float: right;
   display: inline-block;
 }
+

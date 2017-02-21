@@ -59,11 +59,19 @@
 
 		            ?>
 
-		            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post(); ?>
+		            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
+
+		            	 $img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
+		            	 $asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
+		            ?>
 
 		                <div class="product">
-		                	<h3 class="title"><?php the_title(); ?></h3>
-		                    <!-- get_post_meta() and display -->
+		                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
+		                	<!-- TODO: ajax call to set this item as new product for this category for this dog -->
+		                	<!-- update_field( $category, $product_id, $post_id ); -->
+		                    <a class="asin-code <?php echo $asin_code ?>" href="">
+		                    	<img src="<?php echo $img_url ?>" alt="">
+		                    </a>
 		                </div>
 
 		            <?php endwhile; wp_reset_query(); 
@@ -88,6 +96,7 @@
 	    <li></li>
 	  </ul>
 	  <!-- TODO: ajax call to update_user_meta( get_current_user_id(), 'entered_sweepstakes', true ) on button click -->
+	  <!-- TODO: Make this a Gravity Form that automatically stores user idea when clicked.  -->
 	  <button type="button" name="enter-sweepstakes">Enter Sweepstakes</button>
 	  <p class="terms-of-service">*terms of service copy</p>
 	</div>
