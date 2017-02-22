@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/grahamlutz/Documents/BBC/itsadog"
+		}
+	],
+	 "settings": {
+        "xdebug": {
+             "url": "localhost:8000/",
+        }
+    }
+}

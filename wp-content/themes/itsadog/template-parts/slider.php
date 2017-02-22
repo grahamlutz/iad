@@ -11,8 +11,6 @@
 
 <?php
 
-
-
 	// helper function for determining user lifecycle.
 	// 0 = User logged out
 	// 1 = User is logged in, has no dog

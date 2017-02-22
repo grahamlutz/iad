@@ -203,7 +203,7 @@ add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
   * helper function to set up default registry items when creating new dog post
   */
 
-function set_default_registry_product ( $asin_code, $registry_category, $post_id ) {
+function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	$args = array(
 	          'post_type'   => 'registry_product',
 	          'meta_query'  => array(
@@ -225,3 +225,44 @@ function set_default_registry_product ( $asin_code, $registry_category, $post_id
 	} // end if
 	wp_reset_postdata();
 };
+
+/**
+ * Variable transmission to javascript
+ */
+
+function localize_js_vars ()
+{
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
+    </script>
+
+    <?php
+}
+add_action( 'wp_head', 'localize_js_vars' );
+
+add_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );
+
+function update_registry_product() {
+	$post_id;
+	$asin_code = $_POST[ 'asin' ];
+	$product_category = $_POST[ 'categroy' ];
+
+	$the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
+
+	if($the_query->have_posts()){
+	    while ( $the_query->have_posts() ) {
+	        $the_query->the_post();
+	        $post_id = get_the_ID();
+	        set_registry_product( $asin_code, $product_category, $post_id );
+	    }
+	    wp_reset_postdata();
+	}
+}
+
+add_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );
+
+function enter_sweepstakes () {
+	update_user_meta( get_current_user_id(), 'entered_sweepstakes', true );
+}
+

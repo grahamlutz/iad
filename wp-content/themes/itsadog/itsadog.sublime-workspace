@@ -1,0 +1,580 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"updateR",
+				"updateRegistryProduct"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"get_user",
+				"get_user_progression_status"
+			],
+			[
+				"templa",
+				"template-parts"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php\n/**\n * itsadog functions and definitions\n *\n * @link https://developer.wordpress.org/themes/basics/theme-functions/\n *\n * @package itsadog\n */\n\nif ( ! function_exists( 'itsadog_setup' ) ) :\n/**\n * Sets up theme defaults and registers support for various WordPress features.\n *\n * Note that this function is hooked into the after_setup_theme hook, which\n * runs before the init hook. The init hook is too late for some features, such\n * as indicating support for post thumbnails.\n */\nfunction itsadog_setup() {\n\t/*\n\t * Make theme available for translation.\n\t * Translations can be filed in the /languages/ directory.\n\t * If you're building a theme based on itsadog, use a find and replace\n\t * to change 'itsadog' to the name of your theme in all the template files.\n\t */\n\tload_theme_textdomain( 'itsadog', get_template_directory() . '/languages' );\n\n\t// Add default posts and comments RSS feed links to head.\n\tadd_theme_support( 'automatic-feed-links' );\n\n\t/*\n\t * Let WordPress manage the document title.\n\t * By adding theme support, we declare that this theme does not use a\n\t * hard-coded <title> tag in the document head, and expect WordPress to\n\t * provide it for us.\n\t */\n\tadd_theme_support( 'title-tag' );\n\n\t/*\n\t * Enable support for Post Thumbnails on posts and pages.\n\t *\n\t * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/\n\t */\n\tadd_theme_support( 'post-thumbnails' );\n\n\t// This theme uses wp_nav_menu() in one location.\n\tregister_nav_menus( array(\n\t\t'menu-1' => esc_html__( 'Primary', 'itsadog' ),\n\t) );\n\n\t/*\n\t * Switch default core markup for search form, comment form, and comments\n\t * to output valid HTML5.\n\t */\n\tadd_theme_support( 'html5', array(\n\t\t'search-form',\n\t\t'comment-form',\n\t\t'comment-list',\n\t\t'gallery',\n\t\t'caption',\n\t) );\n\n\t// Set up the WordPress core custom background feature.\n\tadd_theme_support( 'custom-background', apply_filters( 'itsadog_custom_background_args', array(\n\t\t'default-color' => 'ffffff',\n\t\t'default-image' => '',\n\t) ) );\n\n\t// Add theme support for selective refresh for widgets.\n\tadd_theme_support( 'customize-selective-refresh-widgets' );\n}\nendif;\nadd_action( 'after_setup_theme', 'itsadog_setup' );\n\n/**\n * Set the content width in pixels, based on the theme's design and stylesheet.\n *\n * Priority 0 to make it available to lower priority callbacks.\n *\n * @global int $content_width\n */\nfunction itsadog_content_width() {\n\t$GLOBALS['content_width'] = apply_filters( 'itsadog_content_width', 640 );\n}\nadd_action( 'after_setup_theme', 'itsadog_content_width', 0 );\n\n/**\n * Register widget area.\n *\n * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar\n */\nfunction itsadog_widgets_init() {\n\tregister_sidebar( array(\n\t\t'name'          => esc_html__( 'Sidebar', 'itsadog' ),\n\t\t'id'            => 'sidebar-1',\n\t\t'description'   => esc_html__( 'Add widgets here.', 'itsadog' ),\n\t\t'before_widget' => '<section id=\"%1$s\" class=\"widget %2$s\">',\n\t\t'after_widget'  => '</section>',\n\t\t'before_title'  => '<h2 class=\"widget-title\">',\n\t\t'after_title'   => '</h2>',\n\t) );\n}\nadd_action( 'widgets_init', 'itsadog_widgets_init' );\n\n/**\n * Enqueue scripts and styles.\n */\nfunction itsadog_scripts() {\n\twp_enqueue_style( 'itsadog-style', get_stylesheet_uri() );\n\n\twp_enqueue_script( 'itsadog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );\n\n\twp_enqueue_script( 'itsadog-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );\n\n\tif ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {\n\t\twp_enqueue_script( 'comment-reply' );\n\t}\n}\nadd_action( 'wp_enqueue_scripts', 'itsadog_scripts' );\n\nfunction itsadog_custom_scripts() {\n\twp_enqueue_style( 'bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array() );\n\twp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array() );\n\twp_enqueue_style( 'itsadog-custom-style', get_template_directory_uri() . '/css/custom.css', array() );\n\n\twp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ) );\n\twp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom.js', array( 'jquery' ) );\n}\nadd_action( 'wp_enqueue_scripts', 'itsadog_custom_scripts' );\n\n/**\n * Implement the Custom Header feature.\n */\nrequire get_template_directory() . '/inc/custom-header.php';\n\n/**\n * Custom template tags for this theme.\n */\nrequire get_template_directory() . '/inc/template-tags.php';\n\n/**\n * Custom functions that act independently of the theme templates.\n */\nrequire get_template_directory() . '/inc/extras.php';\n\n/**\n * Customizer additions.\n */\nrequire get_template_directory() . '/inc/customizer.php';\n\n/**\n * Load Jetpack compatibility file.\n */\nrequire get_template_directory() . '/inc/jetpack.php';\n\n/**\n * Dog Custom Post Type\n */\n\n require get_template_directory() . '/custom-post-types/dog.php';\n\n/**\n * Item Custom Post Type\n */\n\n require get_template_directory() . '/custom-post-types/registry-product.php';\n\n/**\n* Security Fix for Advanced Custom Fields\n*/\n\nfunction my_kses_post( $value ) {\n\n\t// is array\n\tif( is_array($value) ) {\n\t\treturn array_map('my_kses_post', $value);\n\t}\n\n\n\t// return\n\treturn wp_kses_post( $value );\n\n}\n\nadd_filter('acf/update_value', 'my_kses_post', 10, 1);\n\n/**\n  * Set uploaded dog image as featured imaged\n  */\n\nfunction acf_set_featured_image( $value, $post_id, $field  ){\n\n    if($value != ''){\n\t    //Add the value which is the image ID to the _thumbnail_id meta data for the current post\n\t    update_post_meta($post_id, '_thumbnail_id', $value);\n    }\n\n    return $value;\n}\n\nadd_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);\n\n/**\n  * helper function to set up default registry items when creating new dog post\n  */\n\nfunction set_registry_product ( $asin_code, $registry_category, $post_id ) {\n\t$args = array(\n\t          'post_type'   => 'registry_product',\n\t          'meta_query'  => array(\n\t            array(\n\t              'value' => $asin_code\n\t            )\n\t          )\n\t        );\n\n\t// the query\n\t$my_query = new WP_Query( $args ); \n\n\tif( $my_query->have_posts() ) {\n\t  while( $my_query->have_posts() ) {\n\t    $my_query->the_post();\n\t    $id = array( get_the_ID() );\n\t    update_field( $registry_category, $id, $post_id );\n\t  } // end while\n\t} // end if\n\twp_reset_postdata();\n};\n\n/**\n * Variable transmission to javascript\n */\n\nfunction localize_js_vars ()\n{\n    ?>\n    <script type=\"text/javascript\">\n        var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';\n    </script>\n\n    <?php\n}\nadd_action( 'wp_head', 'localize_js_vars' );\n\nadd_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );\n\nfunction update_registry_product() {\n\t$post_id;\n\t$asin_code = $_POST[ 'asin' ];\n\t$product_category = $_POST[ 'categroy' ];\n\n\t$the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );\n\n\tif($the_query->have_posts()){\n\t    while ( $the_query->have_posts() ) {\n\t        $the_query->the_post();\n\t        $post_id = get_the_ID();\n\t        set_registry_product( $asin_code, $product_category, $post_id );\n\t    }\n\t    wp_reset_postdata();\n\t}\n\n\t\n}\n\nadd_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );\n\nfunction enter_sweepstakes () {\n\tupdate_user_meta( get_current_user_id(), 'entered_sweepstakes', true );\n}\n\n",
+			"file": "functions.php",
+			"file_size": 7473,
+			"file_write_time": 131321846240000000,
+			"settings":
+			{
+				"buffer_size": 7476,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/custom.js",
+			"settings":
+			{
+				"buffer_size": 1120,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "custom-post-types/registry-product.php",
+			"settings":
+			{
+				"buffer_size": 3352,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "custom-post-types/dog.php",
+			"settings":
+			{
+				"buffer_size": 2105,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "template-parts/slider.php",
+			"settings":
+			{
+				"buffer_size": 1626,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "template-parts/slider-registry.php",
+			"settings":
+			{
+				"buffer_size": 3465,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/custom.css",
+			"settings":
+			{
+				"buffer_size": 1460,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"git a",
+				"Git: Toggle Annotations"
+			],
+			[
+				"git",
+				"Git: Blame"
+			],
+			[
+				"pack\t",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/grahamlutz/Documents/BBC/itsadog",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog"
+	],
+	"file_history":
+	[
+		"/Users/grahamlutz/Desktop/info.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/itsadog.sublime-project",
+		"/Users/grahamlutz/Library/Application Support/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/vars.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-config.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/README.md",
+		"/Users/grahamlutz/Desktop/:: CRASH COURSE JS",
+		"/Users/grahamlutz/Desktop/test.js",
+		"/Users/grahamlutz/Desktop/cgillis.html",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/slider-registration.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/slider-get-started.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/header.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/custom-post-types/registry-product.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/slider-registry.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/silder-registry-items.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/custom-post-types/dog.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/page-templates/gallery.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/functions.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/page-templates/homepage.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/dashboard.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/.gitignore",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/dashboard-articles.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/dashboard-dog.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/dashboard-subscribe.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/slider-add-dog.php",
+		"/Users/grahamlutz/Documents/BBC/itsadog/wp-content/themes/itsadog/template-parts/slider-social.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"item.php",
+			"get_template_part"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "functions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7300,
+								7300
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2650.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/custom.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1113,
+								1113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "custom-post-types/registry-product.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2125,
+								2125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 659.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "custom-post-types/dog.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1688,
+								1688
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 224.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "template-parts/slider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1372,
+								1372
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "template-parts/slider-registry.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2065,
+								2065
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 734.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "css/custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								356,
+								356
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 223.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "itsadog.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"restore_index":
+			{
+				"262":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"263":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"264":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"276":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"277":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"278":
+				{
+					"group": 0,
+					"index": 6
+				},
+				"296":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"314":
+				{
+					"group": 0,
+					"index": 7
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 282.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

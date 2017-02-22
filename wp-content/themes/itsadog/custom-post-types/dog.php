@@ -42,7 +42,7 @@ function init_dog_registry( $post_id) {
 
     //Save item data as custom fields in registry_product post
     if (!get_post_meta($post_id, 'beds_and_blankets', true)) {
-        set_default_registry_product( 'B00M0V7SRU', 'beds_and_blankets', $post_id );
+        set_registry_product( 'B01EMBB5V0', 'beds_and_blankets', $post_id );
     } else {
         return;
     }
