@@ -14,6 +14,6 @@ sweepstakes to win prizes.
   * Dogs are a custom post type, with input forms rendered via the 
     [Advanced Custom Fields (ACF)](https://www.advancedcustomfields.com/resources/) plug-in.
   * Available registry products are also a custom post type that pull data using the 
-    AmazonProductAPI custom post type (_why is that a custom post type --james_)
+    AmazonProductAPI custom post type (_why is that a custom post type --james_)(_it's not. It's just in the folder b/c Scott didn't want to have to figure out how to reference it elsewhere with require --graham_)
 
 TODO: How do I add a form? For example, if I were going to add the form to the `/manage-registry` page?

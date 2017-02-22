@@ -1,4 +1,5 @@
 <?php
+
 /**
  * itsadog functions and definitions
  *

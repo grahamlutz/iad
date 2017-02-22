@@ -1,5 +1,7 @@
 jQuery(function($){
-	console.log('loaded!');
+	
+  // Update registry product when user clicks on image of product in 
+  // category popup during homepage sign up process
 
 	$('.product .asin-code').click(function() {
 
@@ -27,6 +29,8 @@ jQuery(function($){
         	console.log(res);
         });
 	});
+
+  // Enter Sweepstakes.  This updates user_meta 'entered_sweepstakes' to 'true'.
 
 	$('.enter-sweepstakes').click(function() {
 
