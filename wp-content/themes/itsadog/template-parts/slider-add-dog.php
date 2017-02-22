@@ -8,26 +8,25 @@
  */
 
 ?>
-
 <div class="slider-section add-dog-seciton">
 	<div class="photo-upload-container">
-				<i class="fa fa-plus" aria-hidden="true"></i>
-				<p>Upload a photo of your dog</p>
+		<i class="fa fa-plus" aria-hidden="true"></i>
+		<p>Upload a photo of your dog</p>
 	</div>
 	<div class="filter-container">
-				<p>set filter</p>
-				<div class="filter-icon filter-1">
+		<p>set filter</p>
+		<div class="filter-icon filter-1">
 
-				</div>
-				<div class="filter-icon filter-2">
+		</div>
+		<div class="filter-icon filter-2">
 
-				</div>
-				<div class="filter-icon filter-3">
+		</div>
+		<div class="filter-icon filter-3">
 
-				</div>
-				<div class="filter-icon filter-4">
+		</div>
+		<div class="filter-icon filter-4">
 
-				</div>
+		</div>
 	</div>
 	<div class="pet-profile-container">
 	  <h2>Pet Profile</h2>
@@ -45,9 +44,9 @@
 		/* (array) An array of post data used to create a post. See wp_insert_post for available parameters.
 		The above 'post_id' setting must contain a value of 'new_post' */
 		'new_post' => array(
-						'post_type'		=> 'dog',
-						'post_status'		=> 'draft'
-					),
+			'post_type'		=> 'dog',
+			'post_status'	=> 'draft'
+		),
 		
 		/* (array) An array of field group IDs/keys to override the fields displayed in this form */
 		/* 38 is for localhost, 22 is for production */
