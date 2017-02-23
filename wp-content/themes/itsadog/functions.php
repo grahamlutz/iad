@@ -205,9 +205,6 @@ add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
   */
 
 function set_registry_product ( $asin_code, $registry_category, $post_id ) {
-	echo "<pre>";
-	var_dump($registry_category);
-	echo "</pre>";
 	$args = array(
 	          'post_type'   => 'registry_product',
 	          'meta_query'  => array(

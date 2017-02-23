@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="logged-in">
+<div class="logged-in-dashboard">
 <?php
 
 	get_template_part( 'template-parts/dashboard', 'subscribe' );
