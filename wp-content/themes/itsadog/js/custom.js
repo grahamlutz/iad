@@ -60,4 +60,6 @@ jQuery(function($){
         });
 	});
 
+  // Open dog info editor from logged in dashboard
+
 });

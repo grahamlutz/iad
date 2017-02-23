@@ -108,7 +108,7 @@
 	acf_form( $options );
 
 	acf_enqueue_uploader(); ?>
-	<script type="text/javascript">
+<script type="text/javascript">
 	(function($) {
 		
 		// setup fields

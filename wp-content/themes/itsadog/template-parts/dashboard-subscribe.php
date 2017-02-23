@@ -11,5 +11,6 @@
 
 <div class="row subscribe-box col-md-12">
 	<p>Subscribe <"get user's email"> to our Newsletter </p>
+	<!-- TODO: hook up to MailChimp! -->
 	<button class="subscribe logged-in-subscribe">Subscribe</button>
 </div>
