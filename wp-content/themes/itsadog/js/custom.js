@@ -3,10 +3,13 @@ jQuery(function($){
   // Update registry product when user clicks on image of product in 
   // category popup during homepage sign up process
 
-	$('.product .asin-code').click(function() {
+	$('.product .asin-code').click(function(e) {
+
+    e.preventDefault;
 
 		var asinCode = $(this).attr('data-asin-code');
 		var category = $(this).attr('data-category');
+    var categoryClass = category.replace(/-/g, '_');
 
 		var data = {
                        "action":"updateRgistryProduct",
@@ -28,6 +31,10 @@ jQuery(function($){
         update.fail(function(res) {
         	console.log(res);
         });
+
+    $('.' + categoryClass + 'Modal').modal('hide');
+
+    return false;
 	});
 
   // Enter Sweepstakes.  This updates user_meta 'entered_sweepstakes' to 'true'.
@@ -46,7 +53,7 @@ jQuery(function($){
         });
 
         enter.done(function(res) {
-        	console.log(res);
+        	console.log('success: ', res);
         });
 
         enter.fail(function(res) {
