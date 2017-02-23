@@ -17,9 +17,11 @@
 	// 2 = User is logged in, has dog
 	// 3 = User is logged in, has dog, has registry
 
+	$uid = get_current_user_id();
+
 	$get_user_progression_status = function ($user_id) {
 		if(is_user_logged_in()) {
-			if( get_user_meta( $user_id, 'entered_sweepstakes') ) {
+			if( get_user_meta( $user_id, 'entered_sweepstakes', true) == '1' ) {
 				return 3;
 			}
 			$query = new WP_Query( array( 'author' => $user_id, 'post_type' => 'dog' ) );
@@ -32,10 +34,9 @@
 		}
 	};
 
-	$uid = get_current_user_id();
 	$progress = $get_user_progression_status($uid);
 
-	if( $progress == 3 ){ 	// 3 = User is logged in, has dog, has registry
+	if( $progress == 3 ){ 	// 3 = User is slogged in, has dog, has registry
 		get_template_part( 'template-parts/dashboard' );
 	} else {
 		if( $progress == 0 ) {	// 0 = User logged out
