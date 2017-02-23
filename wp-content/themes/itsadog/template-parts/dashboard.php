@@ -10,5 +10,11 @@
 ?>
 
 <div class="logged-in">
-	Logged In!
+<?php
+
+	get_template_part( 'template-parts/dashboard', 'subscribe' );
+	get_template_part( 'template-parts/dashboard', 'dog');
+	get_template_part( 'template-parts/dashboard', 'articles');
+
+?>
 </div>
