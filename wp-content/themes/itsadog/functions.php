@@ -221,14 +221,6 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	  while( $my_query->have_posts() ) {
 	    $my_query->the_post();
 	    $id = array( get_the_ID() );
-			// echo "<pre>";
-	  // 		echo "id: ";
-			// var_dump($id);
-			// echo "registry category: ";
-			// var_dump($registry_category);
-			// echo "post_id: ";
-			// var_dump($post_id);
-			// echo "</pre>";
 	    update_field( $registry_category, $id, $post_id );
 	  } // end while
 	} // end if
@@ -263,14 +255,6 @@ function update_registry_product() {
 	    while ( $the_query->have_posts() ) {
 	        $the_query->the_post();
 	        $post_id = get_the_ID();
-	  //       echo "<pre>";
-	  //       echo "asin code: ";
-			// var_dump($asin_code);
-			// echo "prduct category: ";
-			// var_dump($product_category);
-			// echo "post_id: ";
-			// var_dump($post_id);
-			// echo "</pre>";
 	        set_registry_product( $asin_code, $product_category, $post_id );
 	    }
 	    wp_reset_postdata();
