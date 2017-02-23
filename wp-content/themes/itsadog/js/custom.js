@@ -8,8 +8,7 @@ jQuery(function($){
     e.preventDefault;
 
 		var asinCode = $(this).attr('data-asin-code');
-		var category = $(this).attr('data-category');
-    var categoryClass = category.replace(/-/g, '_');
+		var category = $(this).attr('data-category').replace(/-/g, '_');
 
 		var data = {
                        "action":"updateRgistryProduct",
@@ -25,14 +24,14 @@ jQuery(function($){
         });
 
         update.done(function(res) {
-        	console.log(res);
+        	// console.log(res);
         });
 
         update.fail(function(res) {
-        	console.log(res);
+        	// console.log(res);
         });
 
-    $('.' + categoryClass + 'Modal').modal('hide');
+    $('.' + category + 'Modal').modal('hide');
 
     return false;
 	});
@@ -53,11 +52,11 @@ jQuery(function($){
         });
 
         enter.done(function(res) {
-        	console.log('success: ', res);
+        	// console.log('success: ', res);
         });
 
         enter.fail(function(res) {
-        	console.log(res);
+        	// console.log(res);
         });
 	});
 

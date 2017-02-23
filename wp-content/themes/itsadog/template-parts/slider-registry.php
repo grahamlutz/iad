@@ -67,8 +67,6 @@
 
 		                <div class="product">
 		                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
-		                	<!-- TODO: ajax call to set this item as new product for this category for this dog -->
-		                	<!-- update_field( $category, $product_id, $post_id ); -->
 		                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
 		                    	<img src="<?php echo $img_url ?>" alt="">
 		                    </a>
@@ -95,8 +93,6 @@
 	    <li></li>
 	    <li></li>
 	  </ul>
-	  <!-- TODO: ajax call to update_user_meta( get_current_user_id(), 'entered_sweepstakes', true ) on button click -->
-	  <!-- TODO: Make this a Gravity Form that automatically stores user idea when clicked.  -->
 	  <button type="button" class="enter-sweepstakes" name="enter-sweepstakes">Enter Sweepstakes</button>
 	  <p class="terms-of-service">*terms of service copy</p>
 	</div>
