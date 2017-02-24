@@ -13,7 +13,6 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 	    while ( $the_query->have_posts() ) {
 	        $the_query->the_post();
 	        $post_id = get_the_ID();
-	        // get_template_part( 'template-parts/dashboard', 'dog' );
 	        $img_url = get_the_post_thumbnail_url();
 	        ?>
 
