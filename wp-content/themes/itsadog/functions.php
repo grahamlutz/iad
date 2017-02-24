@@ -242,6 +242,10 @@ function localize_js_vars ()
 }
 add_action( 'wp_head', 'localize_js_vars' );
 
+/**
+ * Update Registry Products
+ */
+
 add_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );
 
 function update_registry_product() {
@@ -266,4 +270,3 @@ add_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );
 function enter_sweepstakes () {
 	update_user_meta( get_current_user_id(), 'entered_sweepstakes', true );
 }
-

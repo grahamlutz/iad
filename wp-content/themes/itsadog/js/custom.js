@@ -11,10 +11,10 @@ jQuery(function($){
 		var category = $(this).attr('data-category').replace(/-/g, '_');
 
 		var data = {
-                       "action":"updateRgistryProduct",
-                       "asin": asinCode,
-                       "category": category,
-                    }
+                   "action":"updateRgistryProduct",
+                   "asin": asinCode,
+                   "category": category,
+                }
 
 		var update = $.ajax({
            method:   'POST',
@@ -41,8 +41,8 @@ jQuery(function($){
 	$('.enter-sweepstakes').click(function() {
 
 		var data = {
-                       "action":"enterSweepstakes"
-                    }
+                   "action":"enterSweepstakes"
+                }
 
 		var enter = $.ajax({
            method:   'POST',
@@ -59,7 +59,4 @@ jQuery(function($){
         	// console.log(res);
         });
 	});
-
-  // Open dog info editor from logged in dashboard
-
 });
