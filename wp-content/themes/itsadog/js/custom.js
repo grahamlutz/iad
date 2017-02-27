@@ -31,7 +31,7 @@ jQuery(function($){
         	// console.log(res);
         });
 
-    $('.' + category + 'Modal').modal('hide');
+    //$('.' + category + 'Modal').modal('hide');
 
     return false;
 	});

@@ -9,7 +9,7 @@
 
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo "dog" . $post_id ?>Modal">Edit <?php echo the_title() ?>'s information
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dog<?php echo $post_id ?>Modal">Edit <?php echo the_title() ?>'s information
 </button>
 <!-- Modal -->
 <div class="modal fade" id="<?php echo "dog" . $post_id ?>Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -29,6 +29,10 @@
 
 			/* (string) Unique identifier for the form. Defaults to 'acf-form' */
 			'id' => 'edit-dog-form',
+
+			/* (int|string) The post ID to load data from and save data to. Defaults to the current post ID. 
+			Can also be set to 'new_post' to create a new post on submit */
+			'post_id' => $post_id,
 			
 			/* (array) An array of field group IDs/keys to override the fields displayed in this form */
 			/* 38 is for localhost, 22 is for production */
