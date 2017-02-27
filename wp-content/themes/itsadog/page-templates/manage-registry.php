@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Manage Regis
+ * Template Name: Manage Registry
  * Description: Page template without sidebar
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
