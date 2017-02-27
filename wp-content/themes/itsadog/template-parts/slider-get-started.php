@@ -13,8 +13,8 @@
 					<p>Congratulations - It's a dog!</p>
           <p>Sign up and share your It's a Dog! pet registry</p>
           <p>and enter to win our sweepstakes.</p>
-          <button type="button" name="get-started-btn">Get Started</button>
+          <button type="button" class="get-started-btn" name="get-started-btn">Get Started</button>
           <p>or</p>
-          <button type="button" name="login-btn">Login</button>
+          <button type="button" class="login-btn" name="login-btn">Login</button>
 				</div>
       </div>

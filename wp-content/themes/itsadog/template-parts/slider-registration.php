@@ -28,9 +28,9 @@
 
     // If user clicked "Login"
 
-    // wp_login_form(array(
-    //                 'form_id'  =>  'iad-wp-user-login',
-    //               ));
+    wp_login_form(array(
+                    'form_id'  =>  'iad-wp-user-login',
+                  ));
 
     ?>
   </div>

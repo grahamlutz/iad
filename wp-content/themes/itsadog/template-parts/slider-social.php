@@ -26,6 +26,9 @@
 	    <a href="#"><img src="" alt=""></a>
 	    <a href="#"><img src="" alt=""></a>
 	  </div>
-	  <button type="button" name="add-another-dog">Add Another Dog</button>
+	    <?php
+	    get_template_part( 'template-parts/dog', 'add' );
+	    ?>
+
 	</div>
 </div>
