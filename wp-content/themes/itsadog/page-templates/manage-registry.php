@@ -36,9 +36,9 @@ get_header();
 	        	<div class=" col-md-9 dog-info">
 		        	<div class="row">
 		        		<p ><?php echo the_title() ?></p>
-		        		<p data-toggle="modal" data-target="#<?php echo "dog" . $post_id ?>Modal">
-						  Edit <?php echo the_title() ?>'s information
-						</p>
+		        		<?php
+		        		get_template_part( 'template-parts/dog', 'edit' );
+		        		?>
 						<p>Share your registry</p>
 						<p>Delete Dog</p>
 		        	</div>
