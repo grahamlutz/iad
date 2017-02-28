@@ -61,4 +61,29 @@ jQuery(function($){
         	// console.log(res);
         });
 	});
+
+  $('.logged-in-subscribe').click(function() {
+
+    console.log('logged-in-subscribe');
+
+    var data = {
+                   "action":"mailChimpSubscribe"
+                }
+
+    var enter = $.ajax({
+           method:   'POST',
+           url:      ajaxurl,
+           data:     data,
+           dataType: 'text'
+        });
+
+        enter.done(function(res) {
+          // console.log('success: ', res);
+        });
+
+        enter.fail(function(res) {
+          // console.log(res);
+        });
+  });
+
 });

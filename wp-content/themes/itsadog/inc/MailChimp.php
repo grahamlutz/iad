@@ -12,7 +12,7 @@ namespace DrewM\MailChimp;
  */
 class MailChimp
 {
-    private $api_key = "465d8dac5f4b90a67722fab43f2db7a4-us15";
+    private $api_key;
     private $api_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
 
     const TIMEOUT = 10;
@@ -21,7 +21,7 @@ class MailChimp
         Read before disabling:
         http://snippets.webaware.com.au/howto/stop-turning-off-curlopt_ssl_verifypeer-and-fix-your-php-config/
     */
-    public $verify_ssl = true;
+    public $verify_ssl = false;
 
     private $request_successful = false;
     private $last_error         = '';

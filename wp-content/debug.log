@@ -1,0 +1,346 @@
+[28-Feb-2017 19:24:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:24:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:24:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:24:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:24:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:24:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:24:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP Notice:  Use of undefined constant WPE_APIKEY - assumed 'WPE_APIKEY' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 851
+[28-Feb-2017 19:24:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:24:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:24:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:24:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:24:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:24:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP  10. WpeCommon->set_wpe_auth_cookie() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:441
+[28-Feb-2017 19:24:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:24:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:24:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:24:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:24:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:24:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:24:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:24:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:24:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:24:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:24:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:24:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:24:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:08 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:24:08 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:24:08 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46
+[28-Feb-2017 19:24:09 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:24:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:09 UTC] PHP   1. {main}() /var/www/html/index.php:0
+[28-Feb-2017 19:24:09 UTC] PHP   2. require() /var/www/html/index.php:17
+[28-Feb-2017 19:24:09 UTC] PHP   3. require_once() /var/www/html/wp-blog-header.php:13
+[28-Feb-2017 19:24:09 UTC] PHP   4. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:24:09 UTC] PHP   5. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:24:09 UTC] PHP   6. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:24:09 UTC] PHP   7. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:09 UTC] PHP   8. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:09 UTC] PHP   9. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:09 UTC] PHP  10. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:09 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:24:09 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:24:09 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:24:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 1023
+[28-Feb-2017 19:24:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:24:09 UTC] PHP   1. shutdown_action_hook() /var/www/html/wp-includes/load.php:0
+[28-Feb-2017 19:24:09 UTC] PHP   2. do_action() /var/www/html/wp-includes/load.php:677
+[28-Feb-2017 19:24:09 UTC] PHP   3. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:24:09 UTC] PHP   4. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:24:09 UTC] PHP   5. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:09 UTC] PHP   6. wp_ob_end_flush_all() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:24:09 UTC] PHP   7. ob_end_flush() /var/www/html/wp-includes/functions.php:3718
+[28-Feb-2017 19:24:09 UTC] PHP   8. WpeCommon->filter_html_output() /var/www/html/wp-includes/functions.php:3718
+[28-Feb-2017 19:24:09 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:24:09 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:25:09 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:25:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:25:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:25:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:25:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:25:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:25:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:25:09 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:25:09 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:25:09 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP Notice:  Use of undefined constant WPE_APIKEY - assumed 'WPE_APIKEY' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 851
+[28-Feb-2017 19:25:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:25:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:25:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:25:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:25:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:25:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:25:09 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:25:09 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:25:09 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP  10. WpeCommon->set_wpe_auth_cookie() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:441
+[28-Feb-2017 19:25:09 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:25:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:25:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:25:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:25:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:25:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:25:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:25:09 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:25:09 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:25:09 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:25:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:25:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:25:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:25:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:25:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:25:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:25:09 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:25:09 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:25:09 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:25:09 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:25:09 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:25:09 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46
+[28-Feb-2017 19:26:11 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:26:11 UTC] PHP Stack trace:
+[28-Feb-2017 19:26:11 UTC] PHP   1. {main}() /var/www/html/index.php:0
+[28-Feb-2017 19:26:11 UTC] PHP   2. require() /var/www/html/index.php:17
+[28-Feb-2017 19:26:11 UTC] PHP   3. require_once() /var/www/html/wp-blog-header.php:13
+[28-Feb-2017 19:26:11 UTC] PHP   4. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:26:11 UTC] PHP   5. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:26:11 UTC] PHP   6. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:26:11 UTC] PHP   7. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:26:11 UTC] PHP   8. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:26:11 UTC] PHP   9. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:26:11 UTC] PHP  10. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:26:12 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:26:12 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:26:12 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:26:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 1023
+[28-Feb-2017 19:26:12 UTC] PHP Stack trace:
+[28-Feb-2017 19:26:12 UTC] PHP   1. shutdown_action_hook() /var/www/html/wp-includes/load.php:0
+[28-Feb-2017 19:26:12 UTC] PHP   2. do_action() /var/www/html/wp-includes/load.php:677
+[28-Feb-2017 19:26:12 UTC] PHP   3. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:26:12 UTC] PHP   4. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:26:12 UTC] PHP   5. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:26:12 UTC] PHP   6. wp_ob_end_flush_all() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:26:12 UTC] PHP   7. ob_end_flush() /var/www/html/wp-includes/functions.php:3718
+[28-Feb-2017 19:26:12 UTC] PHP   8. WpeCommon->filter_html_output() /var/www/html/wp-includes/functions.php:3718
+[28-Feb-2017 19:26:12 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:26:12 UTC] XDebug could not open the remote debug file '/tmp/xdebug.log'.
+[28-Feb-2017 19:27:09 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:27:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:27:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:27:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:27:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:27:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:27:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:27:09 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:27:09 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:27:09 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:09 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:09 UTC] PHP Notice:  Use of undefined constant WPE_APIKEY - assumed 'WPE_APIKEY' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 851
+[28-Feb-2017 19:27:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:27:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:27:09 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:27:09 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:27:09 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:27:09 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:27:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:27:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:27:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP  10. WpeCommon->set_wpe_auth_cookie() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:441
+[28-Feb-2017 19:27:10 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:27:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:27:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:27:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:27:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:27:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:27:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:27:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:27:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:27:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:27:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:27:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:27:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:27:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:27:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:27:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:27:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:27:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:27:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:27:10 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:27:10 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:27:10 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46
+[28-Feb-2017 19:29:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:29:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:29:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:29:08 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:08 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:08 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:08 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:08 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:08 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:08 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:08 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:08 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:08 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:29:08 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:29:08 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46
+[28-Feb-2017 19:29:09 UTC] PHP Notice:  Undefined variable: MailChimp in /var/www/html/wp-content/themes/itsadog/functions.php on line 287
+[28-Feb-2017 19:29:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:09 UTC] PHP   2. do_action() /var/www/html/wp-admin/admin-ajax.php:91
+[28-Feb-2017 19:29:09 UTC] PHP   3. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:09 UTC] PHP   4. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:09 UTC] PHP   5. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:09 UTC] PHP   6. mailchimp_subscribe() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:09 UTC] PHP Fatal error:  Call to a member function post() on null in /var/www/html/wp-content/themes/itsadog/functions.php on line 287
+[28-Feb-2017 19:29:09 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:09 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:09 UTC] PHP   2. do_action() /var/www/html/wp-admin/admin-ajax.php:91
+[28-Feb-2017 19:29:09 UTC] PHP   3. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:09 UTC] PHP   4. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:09 UTC] PHP   5. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:09 UTC] PHP   6. mailchimp_subscribe() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:29:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP Notice:  Use of undefined constant WPE_APIKEY - assumed 'WPE_APIKEY' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 851
+[28-Feb-2017 19:29:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP  10. WpeCommon->set_wpe_auth_cookie() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:441
+[28-Feb-2017 19:29:10 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:29:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:29:10 UTC] PHP Stack trace:
+[28-Feb-2017 19:29:10 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:29:10 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:29:10 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:29:10 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:29:10 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:29:10 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:29:10 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:29:10 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:29:10 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:29:10 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:29:10 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46
+[28-Feb-2017 19:31:12 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/wpe-sec.php on line 63
+[28-Feb-2017 19:31:12 UTC] PHP Stack trace:
+[28-Feb-2017 19:31:12 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:31:12 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:31:12 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:31:12 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:31:12 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:31:12 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:31:12 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:31:12 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP   9. wpesec_encourage_tls() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP Notice:  Use of undefined constant WPE_APIKEY - assumed 'WPE_APIKEY' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 851
+[28-Feb-2017 19:31:12 UTC] PHP Stack trace:
+[28-Feb-2017 19:31:12 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:31:12 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:31:12 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:31:12 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:31:12 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:31:12 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:31:12 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:31:12 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP  10. WpeCommon->set_wpe_auth_cookie() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:441
+[28-Feb-2017 19:31:12 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php on line 482
+[28-Feb-2017 19:31:12 UTC] PHP Stack trace:
+[28-Feb-2017 19:31:12 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:31:12 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:31:12 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:31:12 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:31:12 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:31:12 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:31:12 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:31:12 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP Notice:  Use of undefined constant PWP_NAME - assumed 'PWP_NAME' in /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php on line 17
+[28-Feb-2017 19:31:12 UTC] PHP Stack trace:
+[28-Feb-2017 19:31:12 UTC] PHP   1. {main}() /var/www/html/wp-admin/admin-ajax.php:0
+[28-Feb-2017 19:31:12 UTC] PHP   2. require_once() /var/www/html/wp-admin/admin-ajax.php:22
+[28-Feb-2017 19:31:12 UTC] PHP   3. require_once() /var/www/html/wp-load.php:37
+[28-Feb-2017 19:31:12 UTC] PHP   4. require_once() /var/www/html/wp-config.php:184
+[28-Feb-2017 19:31:12 UTC] PHP   5. do_action() /var/www/html/wp-settings.php:449
+[28-Feb-2017 19:31:12 UTC] PHP   6. WP_Hook->do_action() /var/www/html/wp-includes/plugin.php:453
+[28-Feb-2017 19:31:12 UTC] PHP   7. WP_Hook->apply_filters() /var/www/html/wp-includes/class-wp-hook.php:323
+[28-Feb-2017 19:31:12 UTC] PHP   8. call_user_func_array:{/var/www/html/wp-includes/class-wp-hook.php:298}() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP   9. WpeCommon->wp_hook_init() /var/www/html/wp-includes/class-wp-hook.php:298
+[28-Feb-2017 19:31:12 UTC] PHP  10. WpeDeployment::warn() /var/www/html/wp-content/mu-plugins/wpengine-common/plugin.php:485
+[28-Feb-2017 19:31:12 UTC] PHP  11. WpeDeployment::instance() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:54
+[28-Feb-2017 19:31:12 UTC] PHP  12. WpeDeployment->__construct() /var/www/html/wp-content/mu-plugins/wpengine-common/class.deployment.php:46

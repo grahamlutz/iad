@@ -270,3 +270,25 @@ add_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );
 function enter_sweepstakes () {
 	update_user_meta( get_current_user_id(), 'entered_sweepstakes', true );
 }
+
+include('inc/MailChimp.php'); 
+
+use \DrewM\MailChimp\MailChimp;
+
+$MailChimp = new MailChimp('465d8dac5f4b90a67722fab43f2db7a4-us15');
+
+add_action( 'wp_ajax_mailChimpSubscribe', 'mailchimp_subscribe' );
+
+function mailchimp_subscribe() {
+	$list_id = '1bf4d95e45';
+	$current_user = wp_get_current_user();
+	$email_address = $current_user->user_email;
+
+	$result = $MailChimp->post("lists/$list_id/members", [
+	                'email_address' => $email_address,
+	                'status'        => 'subscribed',
+	            ]);
+
+	print_r($result);
+}
+
