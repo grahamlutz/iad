@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="registry-items-box">
+<div class="col-md-7 registry-items-box">
 	<?php 
 
 	$args = array( 
@@ -26,10 +26,13 @@
 		$category_name = strtolower(str_replace(" ", "_", $category->name));
 		?>
 
-		<div class="product_category <?php echo $category_name; ?>">
+		<div class="col-md-3 product_category <?php echo $category_name; ?>">
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".<?php echo $category_name; ?>Modal">
 			  <?php echo $category->name; // insert appropriate image here ?>
 			</button>
+			<?php
+			//if ($category_name == )
+			?>
 		</div>
 
 		<!-- Modal to display all items in seleced category -->
