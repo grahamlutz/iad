@@ -2,6 +2,7 @@
 ############
 docker-compose-wordpress
 .data
+Search-Replace-DB-master/
 
 *~
 .DS_Store
