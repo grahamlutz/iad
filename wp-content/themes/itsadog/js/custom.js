@@ -5,6 +5,8 @@ jQuery(function($){
 
 	$('.product .asin-code').click(function(e) {
 
+    // console.log('update registry product');
+
     e.preventDefault;
 
 		var asinCode = $(this).attr('data-asin-code');
@@ -24,14 +26,14 @@ jQuery(function($){
         });
 
         update.done(function(res) {
-        	// console.log(res);
+        	// console.log('success: ', res);
         });
 
         update.fail(function(res) {
         	// console.log(res);
         });
 
-    //$('.' + category + 'Modal').modal('hide');
+    $('.' + category + 'Modal').modal('hide');
 
     return false;
 	});

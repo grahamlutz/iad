@@ -1,3 +1,5 @@
+
+
 /*
  *  Globals
  */
@@ -132,4 +134,21 @@
 
 .manage-registry {
   padding-top: 40px;
+}
+
+/*
+ *  Manage Registry page
+ */
+
+.col-md-5.dog {
+    padding: 12px 0;
+}
+
+.col-md-7.registry-items-box {
+    padding: 55px;
+}
+
+.manage-dog-box {
+  padding: 10px;
+  border-bottom: 1px solid grey;
 }

@@ -6,7 +6,7 @@
  *
  * @package itsadog
  */
-
+$post_id = get_the_ID();
 ?>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dog<?php echo $post_id ?>Modal">Edit <?php echo the_title() ?>'s information

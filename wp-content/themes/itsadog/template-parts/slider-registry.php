@@ -17,9 +17,9 @@
 	  get_template_part( 'template-parts/edit', 'registry-items' );
 
 	  ?>
+	</div>
 	<div class="enter-to-win col-md-6">
 	  <h2>Enter to Win:</h2>
-		</div>
 	  <ul>
 	    <li></li>
 	    <li></li>

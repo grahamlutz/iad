@@ -17,6 +17,7 @@ get_header();
 
 	<?php
 
+	$post_id;
 	$the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
 
 	if($the_query->have_posts()){
@@ -28,35 +29,35 @@ get_header();
 	        // For each dog, create a box with image, name, and info that is col-md-5ish. 
 
 	        ?>
-
-	        <div class="col-md-5 dog <?php echo the_title() ?> dog<?php echo $post_id ?>">
-	        	<div class="col-md-3 image-conatiner">
-	        		<img src="<?php echo $img_url ?>" alt="" class="dog-image">
-	        	</div>
-	        	<div class=" col-md-9 dog-info">
-		        	<div class="row">
-		        		<p ><?php echo the_title() ?></p>
-		        		<?php
-		        		get_template_part( 'template-parts/dog', 'edit' );
-		        		?>
-						<p>Share your registry</p>
-						<p>Delete Dog</p>
+	        <div class="row manage-dog-box">
+		        <div class="col-md-5 dog <?php echo the_title() ?> dog<?php echo $post_id ?>">
+		        	<div class="col-md-3 image-conatiner">
+		        		<img src="<?php echo $img_url ?>" alt="" class="dog-image">
 		        	</div>
-		        	<div class="row">
-		        		<p class="col-md-6">Registrered Items</p>
-		        		<p data-toggle="modal" data-target="#<?php echo $post_id ?>Modal">
-						  Edit Registry
-						</p>
+		        	<div class=" col-md-9 dog-info">
+			        	<div class="row">
+			        		<p ><?php echo the_title() ?></p>
+			        		<?php
+			        		get_template_part( 'template-parts/dog', 'edit' );
+			        		?>
+							<p>Share your registry</p>
+							<p>Delete Dog</p>
+			        	</div>
+			        	<div class="row">
+			        		<p class="col-md-6">Registrered Items</p>
+			        		<p data-toggle="modal" data-target="#<?php echo $post_id ?>Modal">
+							  Edit Registry
+							</p>
+			        	</div>
 		        	</div>
-	        	</div>
-	        </div>
+		        </div> <!-- .col-md-5 dog -->
 
-	        <?php
+		        <?php
 
-	        get_template_part( 'template-parts/edit', 'registry-items' );
+		        get_template_part( 'template-parts/edit', 'registry-items' );
 
-	        ?>
-		</div>
+		        ?>
+			</div> <!-- .manage-dog-box -->
 		<?php
 	    }
 	}
@@ -67,5 +68,4 @@ get_header();
 <?php
 
 get_template_part( 'template-parts/dog', 'add' );
-
 get_footer();
