@@ -78,7 +78,7 @@ jQuery(function($){
         });
 
         enter.done(function(res) {
-          // console.log('success: ', res);
+          console.log('success: ', res);
         });
 
         enter.fail(function(res) {

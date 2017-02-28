@@ -11,8 +11,12 @@
 
 <div class="logged-in-dashboard">
 <?php
+	
+	$uid = get_current_user_id();
 
-	get_template_part( 'template-parts/dashboard', 'subscribe' );
+	if ( get_user_meta( $uid, 'entered_sweepstakes', true) !== '1' ) {
+		get_template_part( 'template-parts/dashboard', 'subscribe' );
+	}
 	get_template_part( 'template-parts/dashboard', 'dog');
 	get_template_part( 'template-parts/dashboard', 'articles');
 

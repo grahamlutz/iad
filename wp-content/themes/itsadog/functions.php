@@ -285,6 +285,7 @@ function mailchimp_subscribe() {
 	                'status'        => 'subscribed',
 	            ]);
 
-	print_r($result);
+	update_user_meta( get_current_user_id(), 'subscribed', true );
+	wp_send_json($result);
 }
 
