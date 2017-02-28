@@ -1,7 +1,5 @@
 <?php
 
-namespace DrewM\MailChimp;
-
 /**
  * Super-simple, minimum abstraction MailChimp API v3 wrapper
  * MailChimp API v3: http://developer.mailchimp.com
