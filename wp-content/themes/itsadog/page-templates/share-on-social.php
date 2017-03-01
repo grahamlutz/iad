@@ -40,16 +40,16 @@ get_header();
 		        	</div>
 		        	<div class="row">
 		        		<div class="facebook col-md-6">
-		        			
+		        			<button class="btn btn-primary">Facebook</button>
 		        		</div>
 		        		<div class="instagram col-md-6">
-		        			
+		        			<button class="btn btn-primary">Instagram</button>
 		        		</div>
 		        		<div class="twitter col-md-6">
-		        			
+		        			<button class="btn btn-primary">Twitter</button>
 		        		</div>
 		        		<div class="email col-md-6">
-		        			
+		        			<button class="btn btn-primary">Email</button>
 		        		</div>
 		        	</div>
 	        	</div>

@@ -322,4 +322,32 @@ function sortArticlesByRelevance() {
 	// for each meta
 		// if meta = category on article
 			// articlePoints++
+
+
 }
+
+function setOpenGraph() {
+    global $post;
+
+    // Maybe just have the "share on social" link from the /Manage-Registry go to dog/{dog-name} and share
+    // from there. Then use if( isSingle() ){}; below. Then any social sharing will happen from that page. 
+
+    if ( is_page_template( 'share-on-social.php' ) ) { 
+    	$img_src = get_the_post_thumbnail_url( $post->ID );
+   		$description;
+    ?>
+ 
+    <meta property="og:title" content="<?php echo the_title(); ?>"/>
+    <meta property="og:description" content="<?php echo $description; ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<?php // echo url /dog/{dog-name}  ?>"/>
+    <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
+    <meta property="og:image" content="<?php echo $img_src; ?>"/>
+ 
+<?php
+    } else {
+        // Set defaults
+    }
+}
+
+add_action('wp_head', 'setOpenGraph', 5);
