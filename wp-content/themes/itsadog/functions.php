@@ -295,3 +295,23 @@ function mailchimp_subscribe() {
 	wp_send_json($result);
 }
 
+function isUserSubscribed() {
+	include('inc/MailChimp.php');
+	$MailChimp = new MailChimp('465d8dac5f4b90a67722fab43f2db7a4-us15');
+	$list_id = '1bf4d95e45';
+	$current_user = wp_get_current_user();
+	$email_address = $current_user->user_email;
+
+	$user_id = md5($email_address);
+
+	$result = $MailChimp->get('lists/' . $list_id . '/members/' . $user_id, [
+				'email_address' => $email_address,
+                'status'        => 'subscribed',
+			]);
+
+	if ($result["email_address"]) {
+		return true;
+	} 
+
+	return false;
+}

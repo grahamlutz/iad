@@ -84,6 +84,8 @@ jQuery(function($){
         enter.fail(function(res) {
           // console.log(res);
         });
+
+    // Display some message that they have successfully subscribed
   });
 
 });
