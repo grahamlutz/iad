@@ -315,3 +315,11 @@ function isUserSubscribed() {
 
 	return false;
 }
+
+function sortArticlesByRelevance() {
+
+	// get list of post_meta associated with dog (age, weight, etc.)
+	// for each meta
+		// if meta = category on article
+			// articlePoints++
+}
