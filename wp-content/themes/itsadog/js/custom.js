@@ -91,8 +91,9 @@ jQuery(function($){
   $('.facebook button').click(function() {
     var url = window.location.hostname;
     var name = $(this).attr('data-dog-name');
-    console.log('url: ', url);
-    console.log('name: ', name);
+    name = name.replace(' ', '-');
+    var quote = 
+
     var data = {
       method: 'share',
       href: url + "/dog/" + name,

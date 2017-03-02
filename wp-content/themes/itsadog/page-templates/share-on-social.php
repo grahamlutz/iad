@@ -29,7 +29,7 @@ get_header();
 	        // For each dog, create a box with image, name, and info that is col-md-5ish. 
 
 	        ?>
-	        <div class="row manage-dog-box">
+	        <div class="row manage-dog-box <?php echo $post_id ?>">
 	        	<div class="col-md-5 image-conatiner">
 	        		<img src="<?php echo $img_url ?>" alt="" class="dog-image">
 	        	</div>
