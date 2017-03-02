@@ -88,14 +88,20 @@ jQuery(function($){
     // TODO: Display some message that they have successfully subscribed
   });
 
-  $('.facebook button').click(function() {
+  $('.manage-dog-box').click(function(e) {
+
+    if ( !$(e.target).attr('data-dog-id') ){
+      return;
+    }
+    
     var url = window.location.hostname;
-    var name = $(this).attr('data-dog-name');
+    var name = $(e.target).attr('data-dog-name');
     name = name.replace(' ', '-');
+    var quote = $(this).children('.dog-info').children('.row').children('textarea').val();
 
     var data = {
       method: 'share',
-      quote: 'Check out my registry! #itsadog',
+      quote: quote,
       href: url + "/dog/" + name,
     }
 
