@@ -36,14 +36,10 @@ get_header();
 	        	<div class=" col-md-7 dog-info">
 		        	<div class="row">
 		        		<p >Share on Social!</p>
-						<textarea>Check out my registry! #itsadog</textarea>
 		        	</div>
 		        	<div class="row">
 		        		<div class="facebook col-md-6">
 		        			<button data-dog-id="<?php echo $post_id ?>" data-dog-name="<?php echo the_title() ?>" class="btn btn-primary">Facebook</button>
-		        		</div>
-		        		<div class="instagram col-md-6">
-		        			<button class="btn btn-primary">Instagram</button>
 		        		</div>
 		        		<div class="twitter col-md-6">
 		        			

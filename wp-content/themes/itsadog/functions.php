@@ -328,13 +328,8 @@ function sortArticlesByRelevance() {
 
 function setOpenGraph() {
     global $post;
-
-    // Maybe just have the "share on social" link from the /Manage-Registry go to dog/{dog-name} and share
-    // from there. Then use if( isSingle() ){}; below. Then any social sharing will happen from that page. 
-
-    if ( is_single() ) { 
-    	$img_src = get_the_post_thumbnail_url( $post->ID );
-   		$description;
+     
+    $img_src = get_the_post_thumbnail_url( $post->ID );
     ?>
  
     <meta property="og:title" content="<?php echo the_title(); ?>"/>
@@ -343,11 +338,14 @@ function setOpenGraph() {
     <meta property="og:url" content="<?php the_permalink() ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:title" content="It's a Dog!">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="http://localhost:8000/wp-content/uploads/2017/02/dog6.jpeg">
  
 <?php
-    } else {
-        // Set defaults
-    }
 }
 
 add_action('wp_head', 'setOpenGraph', 5);
