@@ -49,7 +49,7 @@ get_header();
 		        			
 		        		</div>
 		        		<div class="email col-md-6">
-		        			<button class="btn btn-primary">Email</button>
+		        			
 		        		</div>
 		        	</div>
 	        	</div>

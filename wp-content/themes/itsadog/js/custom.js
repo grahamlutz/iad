@@ -5,8 +5,6 @@ jQuery(function($){
 
 	$('.product .asin-code').click(function(e) {
 
-    // console.log('update registry product');
-
     e.preventDefault;
 
 		var asinCode = $(this).attr('data-asin-code');
@@ -89,30 +87,13 @@ jQuery(function($){
   });
 
   $('.manage-dog-box').click(function(e) {
-    console.log('manage-dog-box');
 
     if ( $(e.target).parent().hasClass('facebook') ){
       facebookShare(e);
       return;
     }
 
-    if ( $(e.target).parent().hasClass('twitter') ){
-      console.log('twitter');
-      twitterShare(e);
-      return;
-    }
-
-    if ( $(e.target).parent().hasClass('instagram') ){
-      instagramShare(e);
-      return;
-    }
-
-    if ( $(e.target).parent().hasClass('email') ){
-      emailShare(e);
-      return;
-    }
-
-  })
+  });
 
   function facebookShare(e) {
     var url = window.location.hostname;
@@ -131,36 +112,46 @@ jQuery(function($){
     });
   }
 
-  function twitterShare(e) {
-    console.log('tada!');
-  }
-
-  function instagramShare(e) {
-
-  }
-
-  function emailShare(e) {
-
-  }
-
   var dogBox = $('.manage-dog-box');
 
-  $.each(dogBox, setTwitterButtons)
+  $.each(dogBox, setShareButtons)
 
-  function setTwitterButtons() {
+  function setShareButtons() {
 
+    var quote = $(this).children('.dog-info').children('.row').children('textarea').val();
     var dogName = $(this).attr('data-dog-name');
     var dogID = $(this).attr('data-dog-id');
-    var hostname = window.location.hostname;
-    var quote = $(this).children('.dog-info').children('.row').children('textarea').val();
-    var url = hostname + "/dog/" + encodeURIComponent(dogName) + "?text=" + encodeURIComponent(quote);
-    console.log(url);
+    var host = window.location.host;
+    var url = "http://"; 
+        url += host;
+        url += "/dog";
+        url += dogName.replace(/\s/g, "-");
+    var tweetUrl = "http://www.twitter.com/share";
+        tweetUrl += "?url=";
+        tweetUrl += url;
+        tweetUrl += "&text=";
+        tweetUrl += encodeURIComponent(quote);
 
+    // Create and append Twitter buttons
     var twitterAnchor = $('<a>');
     twitterAnchor.addClass('twitter-share-button');
-    twitterAnchor.attr('href', url);
+    twitterAnchor.attr('href', tweetUrl);
     $('.' + dogID + ' .twitter').append(twitterAnchor);
+    twttr.widgets.load();
 
+    // Create and append Email buttons
+    var emailAnchor = $('<a>');
+    var emailText = encodeURIComponent(quote) + " " + url;
+    emailAnchor.attr('href', emailText);
+    emailAnchor.text('Email');
+    $('.' + dogID + ' .email').append(emailAnchor);
   };
+
+
+  $('textarea').on('input',function() {
+    $('.twitter').empty();
+    $('.email').empty();
+    $.each(dogBox, setShareButtons)
+  })
 
 });
