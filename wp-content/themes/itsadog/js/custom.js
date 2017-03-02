@@ -85,7 +85,22 @@ jQuery(function($){
           // console.log(res);
         });
 
-    // Display some message that they have successfully subscribed
+    // TODO: Display some message that they have successfully subscribed
   });
+
+  $('.facebook button').click(function() {
+    var url = window.location.hostname;
+    var name = $(this).attr('data-dog-name');
+    console.log('url: ', url);
+    console.log('name: ', name);
+    var data = {
+      method: 'share',
+      href: url + ":8000/dog/" + name,
+    }
+
+    FB.ui(data , function(response){
+      console.log('tada: ', response);
+    });
+  })
 
 });

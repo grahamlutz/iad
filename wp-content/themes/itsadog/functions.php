@@ -332,7 +332,7 @@ function setOpenGraph() {
     // Maybe just have the "share on social" link from the /Manage-Registry go to dog/{dog-name} and share
     // from there. Then use if( isSingle() ){}; below. Then any social sharing will happen from that page. 
 
-    if ( is_page_template( 'share-on-social.php' ) ) { 
+    if ( is_single() ) { 
     	$img_src = get_the_post_thumbnail_url( $post->ID );
    		$description;
     ?>
@@ -340,7 +340,7 @@ function setOpenGraph() {
     <meta property="og:title" content="<?php echo the_title(); ?>"/>
     <meta property="og:description" content="<?php echo $description; ?>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="<?php // echo url /dog/{dog-name}  ?>"/>
+    <meta property="og:url" content="<?php the_permalink() ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
  

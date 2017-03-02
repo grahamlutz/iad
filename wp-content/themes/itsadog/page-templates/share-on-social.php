@@ -40,7 +40,7 @@ get_header();
 		        	</div>
 		        	<div class="row">
 		        		<div class="facebook col-md-6">
-		        			<button class="btn btn-primary">Facebook</button>
+		        			<button data-dog-id="<?php echo $post_id ?>" data-dog-name="<?php echo the_title() ?>" class="btn btn-primary">Facebook</button>
 		        		</div>
 		        		<div class="instagram col-md-6">
 		        			<button class="btn btn-primary">Instagram</button>
