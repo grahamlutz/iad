@@ -29,7 +29,7 @@ get_header();
 	        // For each dog, create a box with image, name, and info that is col-md-5ish. 
 
 	        ?>
-	        <div class="row manage-dog-box <?php echo $post_id ?>">
+	        <div class="row manage-dog-box <?php echo $post_id ?>" data-dog-id="<?php echo $post_id ?>" data-dog-name="<?php echo the_title() ?>">
 	        	<div class="col-md-5 image-conatiner">
 	        		<img src="<?php echo $img_url ?>" alt="" class="dog-image">
 	        	</div>
@@ -46,7 +46,7 @@ get_header();
 		        			<button class="btn btn-primary">Instagram</button>
 		        		</div>
 		        		<div class="twitter col-md-6">
-		        			<button class="btn btn-primary">Twitter</button>
+		        			
 		        		</div>
 		        		<div class="email col-md-6">
 		        			<button class="btn btn-primary">Email</button>

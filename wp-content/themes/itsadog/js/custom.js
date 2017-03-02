@@ -89,11 +89,32 @@ jQuery(function($){
   });
 
   $('.manage-dog-box').click(function(e) {
+    console.log('manage-dog-box');
 
-    if ( !$(e.target).attr('data-dog-id') ){
+    if ( $(e.target).parent().hasClass('facebook') ){
+      facebookShare(e);
       return;
     }
-    
+
+    if ( $(e.target).parent().hasClass('twitter') ){
+      console.log('twitter');
+      twitterShare(e);
+      return;
+    }
+
+    if ( $(e.target).parent().hasClass('instagram') ){
+      instagramShare(e);
+      return;
+    }
+
+    if ( $(e.target).parent().hasClass('email') ){
+      emailShare(e);
+      return;
+    }
+
+  })
+
+  function facebookShare(e) {
     var url = window.location.hostname;
     var name = $(e.target).attr('data-dog-name');
     name = name.replace(' ', '-');
@@ -108,6 +129,38 @@ jQuery(function($){
     FB.ui(data , function(response){
       // console.log('tada: ', response);
     });
-  })
+  }
+
+  function twitterShare(e) {
+    console.log('tada!');
+  }
+
+  function instagramShare(e) {
+
+  }
+
+  function emailShare(e) {
+
+  }
+
+  var dogBox = $('.manage-dog-box');
+
+  $.each(dogBox, setTwitterButtons)
+
+  function setTwitterButtons() {
+
+    var dogName = $(this).attr('data-dog-name');
+    var dogID = $(this).attr('data-dog-id');
+    var hostname = window.location.hostname;
+    var quote = $(this).children('.dog-info').children('.row').children('textarea').val();
+    var url = hostname + "/dog/" + encodeURIComponent(dogName) + "?text=" + encodeURIComponent(quote);
+    console.log(url);
+
+    var twitterAnchor = $('<a>');
+    twitterAnchor.addClass('twitter-share-button');
+    twitterAnchor.attr('href', url);
+    $('.' + dogID + ' .twitter').append(twitterAnchor);
+
+  };
 
 });
