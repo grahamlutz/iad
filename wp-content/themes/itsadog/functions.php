@@ -338,7 +338,7 @@ function setOpenGraph() {
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?php the_permalink() ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
-    <meta property="og:image:url" content="http://localhost:8000/wp-content/uploads/2017/02/dog6.jpeg"/>
+    <meta property="og:image:url" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog7.jpg"/>
     <meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
 	<meta name="twitter:creator" content="">
