@@ -1,4 +1,6 @@
 jQuery(function($){
+
+  console.log('custom.js');
 	
   // Update registry product when user clicks on image of product in 
   // category popup during homepage sign up process
