@@ -92,7 +92,6 @@ jQuery(function($){
     var url = window.location.hostname;
     var name = $(this).attr('data-dog-name');
     name = name.replace(' ', '-');
-    var quote = 
 
     var data = {
       method: 'share',
