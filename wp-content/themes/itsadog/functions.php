@@ -344,7 +344,7 @@ function setOpenGraph() {
 	<meta name="twitter:site" content="">
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:title" content="It's a Dog!">
-	<meta name="twitter:description" content="">
+	<meta name="twitter:description" content="test">
 	<meta name="twitter:image" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog6.jpeg">
  
 <?php
