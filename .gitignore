@@ -3,6 +3,7 @@
 docker-compose-wordpress
 .data
 Search-Replace-DB-master/
+robots.txt
 
 *~
 .DS_Store
