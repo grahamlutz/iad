@@ -95,7 +95,7 @@ jQuery(function($){
     console.log('name: ', name);
     var data = {
       method: 'share',
-      href: url + ":8000/dog/" + name,
+      href: url + "/dog/" + name,
     }
 
     FB.ui(data , function(response){
