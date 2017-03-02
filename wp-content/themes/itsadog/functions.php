@@ -333,18 +333,19 @@ function setOpenGraph() {
     $description = "test description";
     ?>
  
+ 	<meta property="fb:app_id" content="1850125755275228"/>
     <meta property="og:title" content="<?php echo the_title(); ?>"/>
     <meta property="og:description" content="<?php echo $description; ?>"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?php the_permalink() ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
-    <meta property="og:image:url" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog7.jpg"/>
+    <meta property="og:image:url" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog6.jpeg"/>
     <meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:title" content="It's a Dog!">
 	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="http://localhost:8000/wp-content/uploads/2017/02/dog6.jpeg">
+	<meta name="twitter:image" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog6.jpeg">
  
 <?php
 }
