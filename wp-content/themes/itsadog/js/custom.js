@@ -95,11 +95,12 @@ jQuery(function($){
 
     var data = {
       method: 'share',
+      quote: 'Check out my registry! #itsadog',
       href: url + "/dog/" + name,
     }
 
     FB.ui(data , function(response){
-      console.log('tada: ', response);
+      // console.log('tada: ', response);
     });
   })
 
