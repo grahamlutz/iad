@@ -97,7 +97,7 @@ jQuery(function($){
       facebookShare(e);
       return;
     }
-  }
+  });
 
   //$('.manage-dog-box').on('click', '.facebook', facebookShare);
 
