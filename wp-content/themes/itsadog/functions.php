@@ -339,13 +339,13 @@ function setOpenGraph() {
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?php the_permalink() ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
-    <meta property="og:image:url" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog6.jpeg"/>
+    <meta property="og:image:url" content="<?php echo $img_src ?>"/>
     <meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:title" content="It's a Dog!">
 	<meta name="twitter:description" content="test">
-	<meta name="twitter:image" content="https://itsadog.wpengine.com/wp-content/uploads/2017/02/dog6.jpeg">
+	<meta name="twitter:image" content="<?php echo $img_src ?>">
  
 <?php
 }
