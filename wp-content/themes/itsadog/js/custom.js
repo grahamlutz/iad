@@ -134,18 +134,22 @@ jQuery(function($){
 
     // Create and append Twitter buttons
     var twitterAnchor = $('<a>');
-    twitterAnchor.addClass('twitter-share-button');
-    twitterAnchor.attr('href', tweetUrl);
-    twitterAnchor.attr('data-size', 'large');
-    twitterAnchor.attr('data-text', quote);
-    twitterAnchor.attr('data-url', url);
-    twitterAnchor.text('Tweet');
+    twitterAnchor.addClass('twitter-share-button')
+                 .attr('href', tweetUrl)
+                 .attr('data-size', 'large')
+                 .attr('data-text', quote)
+                 .attr('data-url', url)
+                 .text('Tweet');
     $('.' + dogID + ' .twitter').append(twitterAnchor);
-    // twttr.widgets.load();
 
     // Create and append Email buttons
     var emailAnchor = $('<a>');
-    var emailText = encodeURIComponent(quote) + " " + url;
+    var emailText = "mailto:?to=&body=";
+        emailText += encodeURIComponent(quote); 
+        emailText += " " ;
+        emailText += url;
+        emailText += ",&subject=";
+        emailText += encodeURIComponent(quote);
     emailAnchor.attr('href', emailText);
     emailAnchor.text('Email');
     $('.' + dogID + ' .email').append(emailAnchor);
