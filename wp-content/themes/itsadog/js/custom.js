@@ -98,6 +98,7 @@ jQuery(function($){
     var url = window.location.hostname;
     var name = $(e.target).attr('data-dog-name');
     name = name.replace(' ', '-');
+    console.log('name: ', name);
     var quote = "Check out my registry! #itsadog";
 
     var data = {
