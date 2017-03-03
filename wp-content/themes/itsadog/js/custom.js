@@ -92,7 +92,14 @@ jQuery(function($){
   //
 
 
-  $('.manage-dog-box').on('click', '.facebook', facebookShare);
+  $('.manage-dog-box').click(function(e) {
+    if ( $(e.target).parent().hasClass('facebook') ){
+      facebookShare(e);
+      return;
+    }
+  }
+
+  //$('.manage-dog-box').on('click', '.facebook', facebookShare);
 
   function facebookShare(e) {
     var url = window.location.hostname;
