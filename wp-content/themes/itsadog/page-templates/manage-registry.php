@@ -40,7 +40,7 @@ get_header();
 			        		<?php
 			        		get_template_part( 'template-parts/dog', 'edit' );
 			        		?>
-							<p>Share your registry</p>
+							<a href="/share-on-social">Share your registry</a>
 							<p>Delete Dog</p>
 			        	</div>
 			        	<div class="row">
