@@ -29,7 +29,7 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 		        	</div>
 		        	<div class="row">
 		        		<p class="col-md-6">Registrered Items</p>
-		        		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $post_id ?>Modal">
+		        		<button type="button" class="btn btn-primary" data-post-id="<?php echo $post_id ?>" data-toggle="modal" data-target="#<?php echo $post_id ?>Modal">
 						  Edit Registry
 						</button>
 		        	</div>
@@ -118,22 +118,26 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 							                        );
 
 							            $product_list = new WP_Query ( $product_args ); 
-
+							            
+							            $product_IDs = getCurrentRegistryProductIDs( $category_name, $post_id );
+						            	var_dump($product_IDs);
 							            ?>
 
 							            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
 
 							            	 $img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
 							            	 $asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
+
+							            	 //$item_key = array_search( get_the_ID(), $product_list );
 							            ?>
 
-							                <div class="product">
+							                <div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
 							                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
 							                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
 							                    	<img src="<?php echo $img_url ?>" alt="">
 							                    </a>
 							                </div>
-
+	
 							            <?php endwhile; wp_reset_query(); 
 
 								      ?>

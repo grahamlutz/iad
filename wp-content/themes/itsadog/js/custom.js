@@ -9,6 +9,7 @@ jQuery(function($){
 
 		var asinCode = $(this).attr('data-asin-code');
 		var category = $(this).attr('data-category').replace(/-/g, '_');
+    var postId   = $(this).attr('data-post-id');
 
 		var data = {
                    "action":"updateRgistryProduct",
@@ -24,14 +25,21 @@ jQuery(function($){
         });
 
         update.done(function(res) {
-        	// console.log('success: ', res);
+          console.log('success: ', res );
+          //res = JSON.parse(res);
+          // for (var i = 0; i < res.length; i++) {
+          //   console.log('item'+[i]+': ', res[i]);
+          //   var itemId = res[i].ID;
+          //   console.log('itemID: ', itemId);
+          // }
         });
 
         update.fail(function(res) {
-        	// console.log(res);
+        	console.log('failure: ', res);
         });
 
     $('.' + category + 'Modal').modal('hide');
+
 
     return false;
 	});
@@ -90,14 +98,6 @@ jQuery(function($){
   //
   // Social Sharing
   //
-
-
-  // $('.manage-dog-box').click(function(e) {
-  //   if ( $(e.target).parent().hasClass('facebook') ){
-  //     facebookShare(e);
-  //     return;
-  //   }
-  // });
 
   $('.manage-dog-box').on('click', '.facebook button', facebookShare);
 
