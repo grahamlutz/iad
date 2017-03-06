@@ -204,6 +204,27 @@ add_filter('acf/update_value/name=dogs_image', 'acf_set_featured_image', 10, 3);
   * helper function to set up default registry items when creating new dog post
   */
 
+function set_default_registry_product ( $asin_code, $registry_category, $post_id ) {
+	$args = array(
+	          'post_type'   => 'registry_product',
+	          'meta_query'  => array(
+	            array(
+	              'value' => $asin_code
+	            )
+	          )
+	        );
+	// the query
+	$my_query = new WP_Query( $args ); 
+	if( $my_query->have_posts() ) {
+	  while( $my_query->have_posts() ) {
+	    $my_query->the_post();
+	    $id = array( get_the_ID() );
+	    update_field( $registry_category, $id, $post_id );
+	  } // end while
+	} // end if
+	wp_reset_postdata();
+};
+
 function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	$args = array(
 	          'post_type'   => 'registry_product',
@@ -220,12 +241,46 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	if( $my_query->have_posts() ) {
 	  while( $my_query->have_posts() ) {
 	    $my_query->the_post();
-	    $id = array( get_the_ID() );
-	    update_field( $registry_category, $id, $post_id );
+
+		$product_IDs = getCurrentRegistryProductIDs($registry_category, $post_id);
+		var_dump($current_products);
+		// if clicked item's ID is in array, remove it.
+	    $item_key = array_search( get_the_ID(), $product_IDs );
+	    if ( $item_key > -1 ) {
+	    	unset( $product_IDs[$item_key] );
+
+	    // else, add it to the array
+	    } else {
+	    	array_push( $product_IDs, get_the_ID() );
+	    };
+
+	    // Update dog's custom registry category field with new array of registry products.
+	    update_field( $registry_category, $product_IDs, $post_id );
+
+	    // get the newly updated products to send to front end
+	    $current_products = get_field($registry_category, $post_id);
+
+	    //echo json_encode($current_products);
+	    die();
+
 	  } // end while
 	} // end if
 	wp_reset_postdata();
 };
+
+function getCurrentRegistryProductIDs($registry_category, $post_id) {
+	// get registry item relationships custom field from dog post (array of registry_poduct posts)
+    $current_products = get_field($registry_category, $post_id);
+    // put registry_product item id's into an array
+    $product_IDs = array();
+    if ( count($current_products) > 0 ){
+	    for ($i=0; $i < count($current_products); $i++) { 
+	    		array_push( $product_IDs, $current_products[$i]->ID );
+	    };
+	}
+
+	return $product_IDs;
+}
 
 /**
  * Variable transmission to javascript
