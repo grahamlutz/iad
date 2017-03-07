@@ -268,40 +268,9 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	wp_reset_postdata();
 };
 
-function getCurrentRegistryProductIDs($registry_category, $post_id) {
-	// get registry item relationships custom field from dog post (array of registry_poduct posts)
-    $current_products = get_field($registry_category, $post_id);
-    // put registry_product item id's into an array
-    $product_IDs = array();
-    if ( count($current_products) > 0 ){
-	    for ($i=0; $i < count($current_products); $i++) { 
-	    		array_push( $product_IDs, $current_products[$i]->ID );
-	    };
-	}
-
-	return $product_IDs;
-}
-
-/**
- * Variable transmission to javascript
- */
-
-function localize_js_vars ()
-{
-    ?>
-    <script type="text/javascript">
-        var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
-    </script>
-
-    <?php
-}
-add_action( 'wp_head', 'localize_js_vars' );
-
 /**
  * Update Registry Products
  */
-
-add_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );
 
 function update_registry_product() {
 	$post_id;
@@ -320,13 +289,67 @@ function update_registry_product() {
 	}
 }
 
-add_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );
+add_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );
+
+
+// Returns array of products in dog's registry for that category
+
+function getCurrentRegistryProductIDs($registry_category, $post_id) {
+	// get registry item relationships custom field from dog post (array of registry_poduct posts)
+    $current_products = get_field($registry_category, $post_id);
+    // put registry_product item id's into an array
+    $product_IDs = array();
+    if ( count($current_products) > 0 ){
+	    for ($i=0; $i < count($current_products); $i++) { 
+	    		array_push( $product_IDs, $current_products[$i]->ID );
+	    };
+	}
+
+	return $product_IDs;
+}
+
+function displayProduct( $product_list, $product_IDs, $category, $bool ) {
+	while ( $product_list -> have_posts() ) : $product_list -> the_post();
+
+    	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
+    	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
+
+    	$item_key = array_search( get_the_ID(), $product_IDs );
+    	$item_key++;
+		
+		if ( $item_key == $bool ) {
+		?>
+			<div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
+            	<h3 class="title ellipsis"><?php the_title(); ?></h3>
+                <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
+                	<img src="<?php echo $img_url ?>" alt="">
+                </a>
+            </div>
+        <?php
+		}
+	endwhile; wp_reset_query(); 
+}
+
+/**
+ * Variable transmission to javascript
+ */
+
+function localize_js_vars ()
+{
+    ?>
+    <script type="text/javascript">
+        var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
+    </script>
+
+    <?php
+}
+add_action( 'wp_head', 'localize_js_vars' );
+
 
 function enter_sweepstakes () {
 	update_user_meta( get_current_user_id(), 'entered_sweepstakes', true );
 }
-
-add_action( 'wp_ajax_mailChimpSubscribe', 'mailchimp_subscribe' );
+add_action( 'wp_ajax_enterSweepstakes', 'enter_sweepstakes' );
 
 function mailchimp_subscribe() {
 	include('inc/MailChimp.php');
@@ -349,6 +372,7 @@ function mailchimp_subscribe() {
 
 	wp_send_json($result);
 }
+add_action( 'wp_ajax_mailChimpSubscribe', 'mailchimp_subscribe' );
 
 function isUserSubscribed() {
 	include('inc/MailChimp.php');
@@ -385,6 +409,7 @@ function setOpenGraph() {
     global $post;
 
     $img_src = get_the_post_thumbnail_url( $post->ID );
+    // TODO: set real OG description
     $description = "test description";
     ?>
  
@@ -404,5 +429,5 @@ function setOpenGraph() {
  
 <?php
 }
-
 add_action('wp_head', 'setOpenGraph', 5);
+

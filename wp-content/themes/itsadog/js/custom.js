@@ -34,7 +34,7 @@ jQuery(function($){
       return false;
     } 
     if (productHTML.parent().hasClass('not-in-registry')) {
-      productHTML.remove();
+      productHTML.detach();
       productHTML.appendTo('.' + category + ' .in-registry');
       return false;
     }
@@ -81,6 +81,9 @@ jQuery(function($){
       // console.log('tada: ', response);
     });
   }
+
+
+  // Display sharing buttons on /share-on-social
 
   var dogBox = $('.manage-dog-box');
 

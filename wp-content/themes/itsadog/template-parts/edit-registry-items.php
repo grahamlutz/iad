@@ -101,52 +101,11 @@
 				            ?>
 							<div class="col-md-6 in-registry">
 								<h3>In Registry</h3>
-					            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
-
-					            	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
-					            	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
-
-					            	$item_key = array_search( get_the_ID(), $product_IDs );
-					            	$item_key++;
-									
-									if ( $item_key ) {
-									?>
-										<div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
-						                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
-						                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
-						                    	<img src="<?php echo $img_url ?>" alt="">
-						                    </a>
-						                </div>
-						            <?php
-									}
-									?>
-					            <?php endwhile; wp_reset_query(); 
-					            ?>
+					            <?php displayProduct( $product_list, $product_IDs, $category, true ); ?>
 					        </div> <!-- .in-registry -->
 					        <div class="col-md-6 not-in-registry">
 					        	<h3>Not in Registry</h3>
-					            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
-
-					            	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
-					            	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
-
-					            	$item_key = array_search( get_the_ID(), $product_IDs );
-					            	$item_key++;
-					            ?>
-									<?php
-										if ( $item_key === false ) {
-										?>
-											<div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
-							                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
-							                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
-							                    	<img src="<?php echo $img_url ?>" alt="">
-							                    </a>
-							                </div>
-							            <?php
-										}
-									?>
-					            <?php endwhile; wp_reset_query(); 
-					            ?>
+					            <?php displayProduct( $product_list, $product_IDs, $category, false ); ?>
 					        </div> <!-- .in-registry -->
 			            </div> <!-- .tab-pane -->
 
@@ -167,3 +126,6 @@
 </div> <!-- .modal -->
 
 <!-- End Edit Registry Modal -->
+
+
+
