@@ -16,7 +16,7 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 	        $img_url = get_the_post_thumbnail_url();
 	        ?>
 
-	        <div class="col-md-6 dog <?php echo the_title() ?> dog<?php echo $post_id ?>">
+	        <div class="col-md-6 dog <?php echo the_title() ?> dog<?php echo $post_id ?>" data-dog-id="<?php echo $post_id ?>">
 	        	<div class="col-md-3 image-conatiner">
 	        		<img src="<?php echo $img_url ?>" alt="" class="dog-image">
 	        	</div>

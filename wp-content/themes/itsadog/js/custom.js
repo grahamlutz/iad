@@ -10,8 +10,11 @@ jQuery(function($){
 
     var asinCode    = $(this).attr('data-asin-code');
     var category    = $(this).attr('data-category').replace(/-/g, '_');
-    var postId      = $(this).attr('data-post-id');
+    var postId      = $(this).closest('.dog').attr('data-dog-id');
     var productHTML = $(this).parent();
+    console.log(postId);
+    var long = $('.' + postId + ' .' + category + ' .not-in-registry');
+    console.log(long);
 
     var data = {
                    "action":"updateRgistryProduct",
@@ -21,21 +24,21 @@ jQuery(function($){
 
     callToPHP(data);
 
-    moveRegistryItem(productHTML, category);
+    moveRegistryItem(productHTML, category, postId);
 
     return false;
   }
 
-  function moveRegistryItem(productHTML, category) {
+  function moveRegistryItem(productHTML, category, postId ) {
 
     if (productHTML.parent().hasClass('in-registry')) {
       productHTML.detach();
-      productHTML.appendTo('.' + category + ' .not-in-registry');
+      productHTML.appendTo('.dog' + postId + ' .' + category + ' .not-in-registry');
       return false;
     } 
     if (productHTML.parent().hasClass('not-in-registry')) {
       productHTML.detach();
-      productHTML.appendTo('.' + category + ' .in-registry');
+      productHTML.appendTo('.dog' + postId + ' .' + category + ' .in-registry');
       return false;
     }
 

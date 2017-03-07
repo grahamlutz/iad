@@ -13,7 +13,7 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="logged-out-home" class="site-main" role="main">
+		<main id="home" class="site-main" role="main">
 
       <?php
 

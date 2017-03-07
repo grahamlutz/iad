@@ -7,6 +7,9 @@
  * @package itsadog
  */
 
+
+$post_id = get_the_ID();
+
 ?>
 
 <!-- Begin Edit Registry Modal -->
@@ -55,8 +58,8 @@
 
 					?>
 
-					<li class="nav-item">
-		                <a class="nav-link active" data-category="<?php echo $category_name; ?>" data-toggle="tab" href="#panel<?php echo $category_name; ?>" role="tab"><?php echo $category->name; ?></a>
+					<li class="nav-item <?php if ($category_name == 'beds_and_blankets'){ echo "in active";} ?>">
+		                <a class="nav-link active" data-category="<?php echo $category_name; ?>" data-toggle="tab" href="#<?php echo $post_id ?><?php echo $category_name; ?>" role="tab"><?php echo $category->name; ?></a>
 		            </li>
 
 					<?php
@@ -76,7 +79,7 @@
 
 						?>
 
-						<div class="<?php echo $category_name; ?> tab-pane fade <?php if ($category_name == 'beds_and_blankets'){ echo "in active";} ?>" id="panel<?php echo $category_name; ?>" role="tabpanel" data-category="<?php echo $category_name; ?>">
+						<div class="<?php echo $category_name; ?> tab-pane fade <?php if ($category_name == 'beds_and_blankets'){ echo "in active";} ?>" id="<?php echo $post_id ?><?php echo $category_name; ?>" role="tabpanel" data-category="<?php echo $category_name; ?>">
 			                <br>
 			                <?php
 
