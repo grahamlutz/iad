@@ -243,7 +243,7 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	    $my_query->the_post();
 
 		$product_IDs = getCurrentRegistryProductIDs($registry_category, $post_id);
-		var_dump($current_products);
+
 		// if clicked item's ID is in array, remove it.
 	    $item_key = array_search( get_the_ID(), $product_IDs );
 	    if ( $item_key > -1 ) {
@@ -260,7 +260,7 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	    // get the newly updated products to send to front end
 	    $current_products = get_field($registry_category, $post_id);
 
-	    //echo json_encode($current_products);
+	    echo json_encode($current_products);
 	    die();
 
 	  } // end while

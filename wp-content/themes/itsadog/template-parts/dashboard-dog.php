@@ -79,7 +79,7 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 								?>
 
 								<li class="nav-item">
-					                <a class="nav-link active" data-toggle="tab" href="#panel<?php echo $category_name; ?>" role="tab"><?php echo $category->name; ?></a>
+					                <a class="nav-link active" data-category="<?php echo $category_name; ?>" data-toggle="tab" href="#panel<?php echo $category_name; ?>" role="tab"><?php echo $category->name; ?></a>
 					            </li>
 
 								<?php
@@ -99,7 +99,7 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 
 									?>
 
-									<div class="tab-pane fade <?php if ($category_name == 'beds_and_blankets'){ echo "in active";} ?>" id="panel<?php echo $category_name; ?>" role="tabpanel">
+									<div class="<?php echo $category_name; ?> tab-pane fade <?php if ($category_name == 'beds_and_blankets'){ echo "in active";} ?>" id="panel<?php echo $category_name; ?>" role="tabpanel" data-category="<?php echo $category_name; ?>">
 						                <br>
 						                <?php
 
@@ -120,35 +120,65 @@ $the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type'
 							            $product_list = new WP_Query ( $product_args ); 
 							            
 							            $product_IDs = getCurrentRegistryProductIDs( $category_name, $post_id );
-						            	var_dump($product_IDs);
+						            	
 							            ?>
+										<div class="col-md-6 in-registry">
+											<h3>In Registry</h3>
+								            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
 
-							            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
+								            	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
+								            	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
 
-							            	 $img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
-							            	 $asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
+								            	$item_key = array_search( get_the_ID(), $product_IDs );
+								            	$item_key++;
+												
+												if ( $item_key ) {
+												?>
+													<div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
+									                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
+									                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
+									                    	<img src="<?php echo $img_url ?>" alt="">
+									                    </a>
+									                </div>
+									            <?php
+												}
+												?>
+								            <?php endwhile; wp_reset_query(); 
+								            ?>
+								        </div> <!-- .in-registry -->
+								        <div class="col-md-6 not-in-registry">
+								        	<h3>Not in Registry</h3>
+								            <?php while ( $product_list -> have_posts() ) : $product_list -> the_post();
 
-							            	 //$item_key = array_search( get_the_ID(), $product_list );
-							            ?>
+								            	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
+								            	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
 
-							                <div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
-							                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
-							                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
-							                    	<img src="<?php echo $img_url ?>" alt="">
-							                    </a>
-							                </div>
-	
-							            <?php endwhile; wp_reset_query(); 
-
-								      ?>
-						            </div>
+								            	$item_key = array_search( get_the_ID(), $product_IDs );
+								            	$item_key++;
+								            ?>
+												<?php
+													if ( $item_key === false ) {
+													?>
+														<div class="product <?php echo $category->slug ?>" id="product<?php echo get_the_ID() ?>">
+										                	<h3 class="title ellipsis"><?php the_title(); ?></h3>
+										                    <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
+										                    	<img src="<?php echo $img_url ?>" alt="">
+										                    </a>
+										                </div>
+										            <?php
+													}
+												?>
+								            <?php endwhile; wp_reset_query(); 
+								            ?>
+								        </div> <!-- .in-registry -->
+						            </div> <!-- .tab-pane -->
 
 									<?php
 								};
 
 								?>
 					 
-					        </div>
+					        </div> <!-- .tab-content -->
 					    </div>
 					</div>
 			      </div>

@@ -3,13 +3,14 @@ jQuery(function($){
   // Update registry product when user clicks on image of product in 
   // category popup during homepage sign up process
 
-	$('.product .asin-code').click(function(e) {
+	$('.tab-pane').on('click', '.product .asin-code', function(e) {
 
     e.preventDefault;
 
-		var asinCode = $(this).attr('data-asin-code');
-		var category = $(this).attr('data-category').replace(/-/g, '_');
-    var postId   = $(this).attr('data-post-id');
+		var asinCode    = $(this).attr('data-asin-code');
+		var category    = $(this).attr('data-category').replace(/-/g, '_');
+    var postId      = $(this).attr('data-post-id');
+    var productHTML = $(this).parent();
 
 		var data = {
                    "action":"updateRgistryProduct",
@@ -17,29 +18,20 @@ jQuery(function($){
                    "category": category,
                 }
 
-		var update = $.ajax({
-           method:   'POST',
-           url:      ajaxurl,
-           data:     data,
-           dataType: 'text'
-        });
+    ajaxCall(data);
 
-        update.done(function(res) {
-          console.log('success: ', res );
-          //res = JSON.parse(res);
-          // for (var i = 0; i < res.length; i++) {
-          //   console.log('item'+[i]+': ', res[i]);
-          //   var itemId = res[i].ID;
-          //   console.log('itemID: ', itemId);
-          // }
-        });
+    if (productHTML.parent().hasClass('in-registry')) {
+      productHTML.detach();
+      productHTML.appendTo('.' + category + ' .not-in-registry');
+      return false;
+    } 
+    if (productHTML.parent().hasClass('not-in-registry')) {
+      productHTML.remove();
+      productHTML.appendTo('.' + category + ' .in-registry');
+      return false;
+    }
 
-        update.fail(function(res) {
-        	console.log('failure: ', res);
-        });
-
-    $('.' + category + 'Modal').modal('hide');
-
+    //$('.' + category + 'Modal').modal('hide');
 
     return false;
 	});
@@ -48,52 +40,18 @@ jQuery(function($){
 
 	$('.enter-sweepstakes').click(function() {
 
-		var data = {
-                   "action":"enterSweepstakes"
-                }
+		var data = { "action":"enterSweepstakes" }
+    ajaxCall(data);
 
-		var enter = $.ajax({
-           method:   'POST',
-           url:      ajaxurl,
-           data:     data,
-           dataType: 'text'
-        });
-
-        enter.done(function(res) {
-        	// console.log('success: ', res);
-        });
-
-        enter.fail(function(res) {
-        	// console.log(res);
-        });
 	});
 
   $('.logged-in-subscribe').click(function() {
 
-    console.log('logged-in-subscribe');
-
-    var data = {
-                   "action":"mailChimpSubscribe"
-                }
-
-    var enter = $.ajax({
-           method:   'POST',
-           url:      ajaxurl,
-           data:     data,
-           dataType: 'text'
-        });
-
-        enter.done(function(res) {
-          console.log('success: ', res);
-        });
-
-        enter.fail(function(res) {
-          // console.log(res);
-        });
+    var data = { "action":"mailChimpSubscribe" }
+    ajaxCall(data);
 
     // TODO: Display some message that they have successfully subscribed
   });
-
 
   //
   // Social Sharing
@@ -134,10 +92,6 @@ jQuery(function($){
         url += "/dog/";
         url += dogName.replace(/\s/g, "-");
     var tweetUrl = "http://www.twitter.com/share";
-        // tweetUrl += "?url=";
-        // tweetUrl += url;
-        // tweetUrl += "&text=";
-        // tweetUrl += encodeURIComponent(quote);
 
     // Create and append Twitter buttons
     var twitterAnchor = $('<a>');
@@ -161,5 +115,27 @@ jQuery(function($){
     emailAnchor.text('Email');
     $('.' + dogID + ' .email').append(emailAnchor);
   };
+
+  function ajaxCall( data, callback ) {
+    $.ajax({
+           method:   'POST',
+           url:      ajaxurl,
+           data:     data,
+           dataType: 'text'
+        })
+
+        .done(function(res) {
+          if(callback) {
+            callback(res);
+          }
+          console.log('success');
+          console.log(res);
+        })
+
+        .fail(function(res) {
+          console.log('failure');
+          console.log(res);
+        });
+  }
 
 });
