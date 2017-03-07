@@ -3,22 +3,30 @@ jQuery(function($){
   // Update registry product when user clicks on image of product in 
   // category popup during homepage sign up process
 
-	$('.tab-pane').on('click', '.product .asin-code', function(e) {
+	$('.tab-pane').on('click', '.product .asin-code', addDeleteRegistryItem);
 
+  function addDeleteRegistryItem (e) {
     e.preventDefault;
 
-		var asinCode    = $(this).attr('data-asin-code');
-		var category    = $(this).attr('data-category').replace(/-/g, '_');
+    var asinCode    = $(this).attr('data-asin-code');
+    var category    = $(this).attr('data-category').replace(/-/g, '_');
     var postId      = $(this).attr('data-post-id');
     var productHTML = $(this).parent();
 
-		var data = {
+    var data = {
                    "action":"updateRgistryProduct",
                    "asin": asinCode,
                    "category": category,
                 }
 
-    ajaxCall(data);
+    callToPHP(data);
+
+    moveRegistryItem(productHTML, category);
+
+    return false;
+  }
+
+  function moveRegistryItem(productHTML, category) {
 
     if (productHTML.parent().hasClass('in-registry')) {
       productHTML.detach();
@@ -31,24 +39,21 @@ jQuery(function($){
       return false;
     }
 
-    //$('.' + category + 'Modal').modal('hide');
-
-    return false;
-	});
+  }
 
   // Enter Sweepstakes.  This updates user_meta 'entered_sweepstakes' to 'true'.
 
 	$('.enter-sweepstakes').click(function() {
 
 		var data = { "action":"enterSweepstakes" }
-    ajaxCall(data);
+    callToPHP(data);
 
 	});
 
   $('.logged-in-subscribe').click(function() {
 
     var data = { "action":"mailChimpSubscribe" }
-    ajaxCall(data);
+    callToPHP(data);
 
     // TODO: Display some message that they have successfully subscribed
   });
@@ -116,7 +121,7 @@ jQuery(function($){
     $('.' + dogID + ' .email').append(emailAnchor);
   };
 
-  function ajaxCall( data, callback ) {
+  function callToPHP( data, callback ) {
     $.ajax({
            method:   'POST',
            url:      ajaxurl,
