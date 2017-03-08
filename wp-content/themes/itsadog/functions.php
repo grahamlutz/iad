@@ -225,7 +225,16 @@ function set_default_registry_product ( $asin_code, $registry_category, $post_id
 	wp_reset_postdata();
 };
 
-function set_registry_product ( $asin_code, $registry_category, $post_id ) {
+/**
+ * Update Registry Products
+ */
+
+function update_registry_product() {
+
+	$post_id = $_POST[ 'postId' ];
+	$asin_code = $_POST[ 'asin' ];
+	$registry_category = $_POST[ 'category' ];
+
 	$args = array(
 	          'post_type'   => 'registry_product',
 	          'meta_query'  => array(
@@ -242,6 +251,7 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	  while( $my_query->have_posts() ) {
 	    $my_query->the_post();
 
+	    // get array of product ID's currently included in the registry in this category
 		$product_IDs = getCurrentRegistryProductIDs($registry_category, $post_id);
 
 		// if clicked item's ID is in array, remove it.
@@ -266,28 +276,7 @@ function set_registry_product ( $asin_code, $registry_category, $post_id ) {
 	  } // end while
 	} // end if
 	wp_reset_postdata();
-};
-
-/**
- * Update Registry Products
- */
-
-function update_registry_product() {
-	$post_id;
-	$asin_code = $_POST[ 'asin' ];
-	$product_category = $_POST[ 'category' ];
-
-	$the_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
-
-	if($the_query->have_posts()){
-	    while ( $the_query->have_posts() ) {
-	        $the_query->the_post();
-	        $post_id = get_the_ID();
-	        set_registry_product( $asin_code, $product_category, $post_id );
-	    }
-	    wp_reset_postdata();
-	}
-}
+}	
 
 add_action( 'wp_ajax_updateRgistryProduct', 'update_registry_product' );
 
@@ -313,6 +302,7 @@ function displayProduct( $product_list, $product_IDs, $category, $bool ) {
 
     	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
     	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
+    	$amzn_url = get_post_meta( get_the_ID(), 'item_url', true );
 
     	$item_key = array_search( get_the_ID(), $product_IDs );
     	$item_key++;
@@ -324,6 +314,7 @@ function displayProduct( $product_list, $product_IDs, $category, $bool ) {
                 <a class="asin-code <?php echo $asin_code ?>" data-category="<?php echo $category->slug ?>" data-asin-code="<?php echo $asin_code ?>" href="">
                 	<img src="<?php echo $img_url ?>" alt="">
                 </a>
+                <a target="_blank" href="<?php echo $amzn_url ?>">View on Amazon</a>
             </div>
         <?php
 		}
