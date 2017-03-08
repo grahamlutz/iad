@@ -10,9 +10,9 @@ jQuery(function($){
 
     var asinCode    = $(this).attr('data-asin-code');
     var category    = $(this).attr('data-category').replace(/-/g, '_');
-    var postId      = $(this).closest('.dog').attr('data-dog-id');
+    var postId      = $(this).closest('.modal').prev('button').attr('data-post-id');
     var productHTML = $(this).parent();
-
+  
     var data = {
                    "action":"updateRgistryProduct",
                    "postId": postId,
@@ -31,12 +31,12 @@ jQuery(function($){
 
     if (productHTML.parent().hasClass('in-registry')) {
       productHTML.detach();
-      productHTML.appendTo('.dog' + postId + ' .' + category + ' .not-in-registry');
+      productHTML.appendTo('#' + postId + 'Modal .' + category + ' .not-in-registry');
       return false;
     } 
     if (productHTML.parent().hasClass('not-in-registry')) {
       productHTML.detach();
-      productHTML.appendTo('.dog' + postId + ' .' + category + ' .in-registry');
+      productHTML.appendTo('#' + postId + 'Modal .' + category + ' .in-registry');
       return false;
     }
 
