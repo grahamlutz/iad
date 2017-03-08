@@ -104,7 +104,22 @@ $post_id = get_the_ID();
 				            ?>
 							<div class="col-md-6 in-registry">
 								<h3>In Registry</h3>
-					            <?php displayProduct( $product_list, $product_IDs, $category, true ); ?>
+					            <?php 
+
+					            if ( $category->slug == 'chew-toys-and-decor' ) {
+					            	?>
+									
+									<div class="product" id="nexGard">
+						            	<h3 class="title ellipsis">NexGard</h3>
+						                <a class="" data-category="<?php echo $category->slug ?>"  href="">
+						                	<img src="" alt="NexGard Image">
+						                </a>
+						            </div>
+
+					            	<?php
+					            }
+
+					            displayProduct( $product_list, $product_IDs, $category, true ); ?>
 					        </div> <!-- .in-registry -->
 					        <div class="col-md-6 not-in-registry">
 					        	<h3>Not in Registry</h3>
