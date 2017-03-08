@@ -12,12 +12,10 @@ jQuery(function($){
     var category    = $(this).attr('data-category').replace(/-/g, '_');
     var postId      = $(this).closest('.dog').attr('data-dog-id');
     var productHTML = $(this).parent();
-    console.log(postId);
-    var long = $('.' + postId + ' .' + category + ' .not-in-registry');
-    console.log(long);
 
     var data = {
                    "action":"updateRgistryProduct",
+                   "postId": postId,
                    "asin": asinCode,
                    "category": category,
                 }
@@ -27,7 +25,7 @@ jQuery(function($){
     moveRegistryItem(productHTML, category, postId);
 
     return false;
-  }
+  };
 
   function moveRegistryItem(productHTML, category, postId ) {
 
@@ -42,7 +40,15 @@ jQuery(function($){
       return false;
     }
 
-  }
+  };
+
+  $('#nexGard').click(function(e) {
+    e.preventDefault;
+
+    alert('Available at your veterinarian.');
+
+    return false;
+  });
 
   // Enter Sweepstakes.  This updates user_meta 'entered_sweepstakes' to 'true'.
 
@@ -83,7 +89,7 @@ jQuery(function($){
     FB.ui(data , function(response){
       // console.log('tada: ', response);
     });
-  }
+  };
 
 
   // Display sharing buttons on /share-on-social
@@ -147,6 +153,6 @@ jQuery(function($){
           console.log('failure');
           console.log(res);
         });
-  }
+  };
 
 });

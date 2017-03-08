@@ -156,3 +156,14 @@
 img.dog-image {
     width: 200px;
 }
+
+/*
+ *  Modals
+ */
+
+@media (min-width: 768px) {
+  .modal-dialog {
+      width: 80%;
+      margin: 30px auto;
+  }
+}
