@@ -12,7 +12,7 @@ jQuery(function($){
     var category    = $(this).attr('data-category').replace(/-/g, '_');
     var postId      = $(this).closest('.modal').prev('button').attr('data-post-id');
     var productHTML = $(this).parent();
-  
+
     var data = {
                    "action":"updateRgistryProduct",
                    "postId": postId,
@@ -104,10 +104,12 @@ jQuery(function($){
     var dogName = $(this).attr('data-dog-name');
     var dogID = $(this).attr('data-dog-id');
     var host = window.location.host;
-    var url = "http://"; 
-        url += host;
-        url += "/dog/";
-        url += dogName.replace(/\s/g, "-");
+    if( dogName ) {
+      var url = "http://"; 
+          url += host;
+          url += "/dog/";
+          url += dogName.replace(/\s/g, "-");
+    }
     var tweetUrl = "http://www.twitter.com/share";
 
     // Create and append Twitter buttons

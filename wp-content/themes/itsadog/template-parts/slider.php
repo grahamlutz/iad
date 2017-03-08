@@ -18,10 +18,11 @@
 	// 3 = User is logged in, has dog, has registry
 
 	$uid = get_current_user_id();
+	$the_dog_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
 
 	$get_user_progression_status = function ($user_id) {
 		if(is_user_logged_in()) {
-			if( get_user_meta( $user_id, 'entered_sweepstakes', true) == '1' ) {
+			if( get_user_meta( $user_id, 'entered_sweepstakes', true) == '1' || $the_dog_query->post_count > 1 ) {
 				return 3;
 			}
 			$query = new WP_Query( array( 'author' => $user_id, 'post_type' => 'dog' ) );
