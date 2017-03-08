@@ -9,6 +9,19 @@
 
 
 $post_id = get_the_ID();
+	
+if ( $post_id == 2) {
+	$the_dog_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
+
+	if($the_dog_query->have_posts()){
+	    while ( $the_dog_query->have_posts() ) {
+	        $the_dog_query->the_post();
+	        $post_id = get_the_ID();
+	        $img_url = get_the_post_thumbnail_url();
+	    }
+	    wp_reset_postdata();
+	}
+}
 
 ?>
 
