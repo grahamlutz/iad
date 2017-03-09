@@ -290,7 +290,7 @@ function getCurrentRegistryProductIDs($registry_category, $post_id) {
     $product_IDs = array();
     if ( count($current_products) > 0 ){
 	    for ($i=0; $i < count($current_products); $i++) { 
-	    		array_push( $product_IDs, $current_products[$i]->ID );
+	    	array_push( $product_IDs, $current_products[$i]->ID );
 	    };
 	}
 
@@ -299,10 +299,10 @@ function getCurrentRegistryProductIDs($registry_category, $post_id) {
 
 function displayProduct( $product_list, $product_IDs, $category, $bool ) {
 	while ( $product_list -> have_posts() ) : $product_list -> the_post();
-
-    	$img_url = get_post_meta( get_the_ID(), 'item_image_url', true );
+ 
+    	$img_url   = get_post_meta( get_the_ID(), 'item_image_url', true );
     	$asin_code = get_post_meta( get_the_ID(), 'asin_code', true ); 
-    	$amzn_url = get_post_meta( get_the_ID(), 'item_url', true );
+    	$amzn_url  = get_post_meta( get_the_ID(), 'item_url', true );
 
     	$item_key = array_search( get_the_ID(), $product_IDs );
     	$item_key++;
@@ -388,11 +388,75 @@ function isUserSubscribed() {
 
 function sortArticlesByRelevance() {
 
-	// get list of post_meta associated with dog (age, weight, etc.)
-	// for each meta
-		// if meta = category on article
-			// articlePoints++
+	$dogs_meta = array();
+	$posts_with_scores = array();
 
+	// get users dogs
+	$uid = get_current_user_id();
+	$the_dog_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
+	if($the_dog_query->have_posts()){
+	    while ( $the_dog_query->have_posts() ) {
+	        $the_dog_query->the_post();
+	        $post_id = get_the_ID();
+	        // get list of post_meta values associated with dogs (age, weight, breed);
+	        $dogs_age = get_post_meta( $post_id, 'dogs_age', true );
+	        $dogs_weight = get_post_meta( $post_id, 'dogs_weight', true );
+	        $dogs_breed = get_post_meta( $post_id, 'dogs_breed', true );
+	        // put them in an array
+	        array_push($dogs_meta, $dogs_age);
+	        array_push($dogs_meta, $dogs_weight);
+	        array_push($dogs_meta, $dogs_breed);
+	    }
+	    wp_reset_postdata();
+	}
+	// Dedup array();
+	$dogs_meta = array_unique($dogs_meta);
+	
+	// get posts
+	$args = array(
+	        'post_type' => 'post'
+	    );
+
+	$post_query = new WP_Query($args);
+
+	if($post_query->have_posts() ) {
+	  while($post_query->have_posts() ) {
+	    $post_query->the_post();
+	    $post_id = get_the_ID();
+	    $categories = get_the_category();
+	    $dogs_categories = array();
+	    $articlePoints = 0;
+	    // get list of post categories and put them in an array
+	    foreach ($categories as $category) {
+	    	$category_name = str_replace("-", "_", $category->slug);
+    		array_push($dogs_categories, $category_name);
+	    }
+	    // loop array to check if the dogs meta value is present in the category array
+	    foreach ($dogs_categories as $dogs_category) {
+	    	$isCategoryMatch = array_search($dogs_category, $dogs_meta);
+	    	if ( $isCategoryMatch ) {
+	    		$articlePoints++;
+	    	}
+	    }
+	    // add post ID and associated points to array
+		$posts_with_scores[$post_id] = $articlePoints;
+	  }
+	}
+
+	// sort array by articlePoints
+	arsort($posts_with_scores);
+
+	// loop array and display 
+	foreach ( $posts_with_scores as $post_id => $articlePoints) {
+		$article = get_post($post_id, ARRAY_A);
+		$title = $article['post_title'];
+		?>
+	    <!-- TODO: make a 5-column layout -->
+	    <div class="col-md-3 article-box">
+	    	<h2><?php echo $title ?></h2>
+	    </div>
+	    <?php
+	}
 
 }
 
@@ -421,4 +485,3 @@ function setOpenGraph() {
 <?php
 }
 add_action('wp_head', 'setOpenGraph', 5);
-
