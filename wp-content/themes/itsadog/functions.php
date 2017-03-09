@@ -386,9 +386,8 @@ function isUserSubscribed() {
 	return false;
 }
 
-function getDogsMetaValues() {
-	$arr = array();
-	$uid = get_current_user_id();
+function getDogsAgeWeightBreed() {
+	$listOfDogsVitals = array(); // Will hold deduped list of all dogs ages, weights, and breeds
 	$the_dog_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
 	if($the_dog_query->have_posts()){
 	    while ( $the_dog_query->have_posts() ) {
@@ -399,18 +398,18 @@ function getDogsMetaValues() {
 	        $dogs_weight = get_post_meta( $post_id, 'dogs_weight', true );
 	        $dogs_breed = get_post_meta( $post_id, 'dogs_breed', true );
 	        // put them in an array
-	        array_push($arr, $dogs_age);
-	        array_push($arr, $dogs_weight);
-	        array_push($arr, $dogs_breed);
+	        array_push($listOfDogsVitals, $dogs_age);
+	        array_push($listOfDogsVitals, $dogs_weight);
+	        array_push($listOfDogsVitals, $dogs_breed);
 	    }
 	    wp_reset_postdata();
 	}
 	// Dedup array();
-	$arr = array_unique($arr);
-	return $arr;
+	$listOfDogsVitals = array_unique($listOfDogsVitals);
+	return $listOfDogsVitals;
 }
 
-function getPostIDsWithScores($arr) {
+function getPostIDsWithScores($listOfDogsVitals) {
 	$args = array(
 	        'post_type' => 'post'
 	    );
@@ -423,52 +422,32 @@ function getPostIDsWithScores($arr) {
 	    $post_query->the_post();
 	    $post_id = get_the_ID();
 	    $categories = get_the_category();
-	    $post_categories = array();
 	    $articlePoints = 0;
-	    // get list of post categories and put them in an array
+	    // loop list of post categories to check if the dogs meta value is present in the category array
 	    foreach ($categories as $category) {
-    		array_push($post_categories, $category->slug);
-	    }
-	    $post_categories = array_unique($post_categories);
-	    // loop array to check if the dogs meta value is present in the category array
-	    foreach ($post_categories as $dogs_category) {
-	    	$isCategoryMatch = array_search($dogs_category, $arr);
+    		$isCategoryMatch = array_search($category->slug, $listOfDogsVitals);
 	    	$isCategoryMatch++;
 	    	if ( $isCategoryMatch ) {
+	    		// Give the article 1 point
 	    		$articlePoints++;
 	    	}
 	    }
 	    // add post ID and associated points to array
-		$posts[$post_id] = $articlePoints;
+		$posts_with_scores[$post_id] = $articlePoints;
 	  }
 	  wp_reset_postdata();
 	}
 
 	// sort array by articlePoints
-	arsort($posts);
-	return $posts;
+	arsort($posts_with_scores);
+	return $posts_with_scores;
 }
 
-function displayArticles($article) {
-	$title = $article['post_title'];
-	?>
-    <!-- TODO: make a 5-column layout -->
-    <div class="col-md-3 article-box">
-    	<h2><?php echo $title ?></h2>
-    </div>
-    <?php
-}
-
-function sortArticlesByRelevance() {
-
-	$dogs_meta = getDogsMetaValues();
-	$posts_with_scores = getPostIDsWithScores($dogs_meta);
-
-	// loop array and display 
-	foreach ( $posts_with_scores as $post_id => $articlePoints) {
-		$article = get_post($post_id, ARRAY_A);
-		displayArticles($article);
-	}
+// Returns associative array with each index being $post_id => $articlePoints, sorted by $articlePoints
+function getSortedArticleIDs() {
+	$listOfDogsVitals = getDogsAgeWeightBreed();
+	$posts_with_scores = getPostIDsWithScores($listOfDogsVitals);
+	return $posts_with_scores;
 }
 
 function setOpenGraph() {
@@ -487,7 +466,7 @@ function setOpenGraph() {
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
     <meta property="og:image" content="<?php echo $img_src ?>"/>
     <meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="">
+	<meta name="twitter:site" content="Its a Dog!">
 	<meta name="twitter:creator" content="">
 	<meta name="twitter:title" content="It's a Dog!">
 	<meta name="twitter:description" content="test">
