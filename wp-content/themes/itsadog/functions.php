@@ -386,12 +386,8 @@ function isUserSubscribed() {
 	return false;
 }
 
-function sortArticlesByRelevance() {
-
-	$dogs_meta = array();
-	$posts_with_scores = array();
-
-	// get users dogs
+function getDogsMetaValues() {
+	$arr = array();
 	$uid = get_current_user_id();
 	$the_dog_query = new WP_Query( array( 'author' => get_current_user_id(), 'post_type' => 'dog' ) );
 	if($the_dog_query->have_posts()){
@@ -403,16 +399,18 @@ function sortArticlesByRelevance() {
 	        $dogs_weight = get_post_meta( $post_id, 'dogs_weight', true );
 	        $dogs_breed = get_post_meta( $post_id, 'dogs_breed', true );
 	        // put them in an array
-	        array_push($dogs_meta, $dogs_age);
-	        array_push($dogs_meta, $dogs_weight);
-	        array_push($dogs_meta, $dogs_breed);
+	        array_push($arr, $dogs_age);
+	        array_push($arr, $dogs_weight);
+	        array_push($arr, $dogs_breed);
 	    }
 	    wp_reset_postdata();
 	}
 	// Dedup array();
-	$dogs_meta = array_unique($dogs_meta);
-	
-	// get posts
+	$arr = array_unique($arr);
+	return $arr;
+}
+
+function getPostIDsWithScores($arr) {
 	$args = array(
 	        'post_type' => 'post'
 	    );
@@ -434,33 +432,43 @@ function sortArticlesByRelevance() {
 	    $post_categories = array_unique($post_categories);
 	    // loop array to check if the dogs meta value is present in the category array
 	    foreach ($post_categories as $dogs_category) {
-	    	$isCategoryMatch = array_search($dogs_category, $dogs_meta);
+	    	$isCategoryMatch = array_search($dogs_category, $arr);
 	    	$isCategoryMatch++;
 	    	if ( $isCategoryMatch ) {
 	    		$articlePoints++;
 	    	}
 	    }
 	    // add post ID and associated points to array
-		$posts_with_scores[$post_id] = $articlePoints;
+		$posts[$post_id] = $articlePoints;
 	  }
 	  wp_reset_postdata();
 	}
 
 	// sort array by articlePoints
-	arsort($posts_with_scores);
+	arsort($posts);
+	return $posts;
+}
+
+function displayArticles($article) {
+	$title = $article['post_title'];
+	?>
+    <!-- TODO: make a 5-column layout -->
+    <div class="col-md-3 article-box">
+    	<h2><?php echo $title ?></h2>
+    </div>
+    <?php
+}
+
+function sortArticlesByRelevance() {
+
+	$dogs_meta = getDogsMetaValues();
+	$posts_with_scores = getPostIDsWithScores($dogs_meta);
 
 	// loop array and display 
 	foreach ( $posts_with_scores as $post_id => $articlePoints) {
 		$article = get_post($post_id, ARRAY_A);
-		$title = $article['post_title'];
-		?>
-	    <!-- TODO: make a 5-column layout -->
-	    <div class="col-md-3 article-box">
-	    	<h2><?php echo $title ?></h2>
-	    </div>
-	    <?php
+		displayArticles($article);
 	}
-
 }
 
 function setOpenGraph() {
