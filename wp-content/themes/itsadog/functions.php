@@ -404,7 +404,7 @@ function getDogsAgeWeightBreed() {
 	    }
 	    wp_reset_postdata();
 	}
-	// Dedup array();
+	// Dedupe array();
 	$listOfDogsVitals = array_unique($listOfDogsVitals);
 	return $listOfDogsVitals;
 }
@@ -426,9 +426,8 @@ function getPostIDsWithScores($listOfDogsVitals) {
 	    // loop list of post categories to check if the dogs meta value is present in the category array
 	    foreach ($categories as $category) {
     		$isCategoryMatch = array_search($category->slug, $listOfDogsVitals);
-	    	$isCategoryMatch++;
+	    	$isCategoryMatch++; // To make sure index 0 passes the following conditional check
 	    	if ( $isCategoryMatch ) {
-	    		// Give the article 1 point
 	    		$articlePoints++;
 	    	}
 	    }
@@ -454,6 +453,10 @@ function setOpenGraph() {
     global $post;
 
     $img_src = get_the_post_thumbnail_url( $post->ID );
+    // TODO: set default og:image
+    // if (!$img_src) {
+    // 	$img_src = "Set Default Image"
+    // }
     // TODO: set real OG description
     $description = "test description";
     ?>
