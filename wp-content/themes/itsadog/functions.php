@@ -418,22 +418,24 @@ function sortArticlesByRelevance() {
 	    );
 
 	$post_query = new WP_Query($args);
+	$post_categories = array();
 
 	if($post_query->have_posts() ) {
 	  while($post_query->have_posts() ) {
 	    $post_query->the_post();
 	    $post_id = get_the_ID();
 	    $categories = get_the_category();
-	    $dogs_categories = array();
+	    $post_categories = array();
 	    $articlePoints = 0;
 	    // get list of post categories and put them in an array
 	    foreach ($categories as $category) {
-	    	$category_name = str_replace("-", "_", $category->slug);
-    		array_push($dogs_categories, $category_name);
+    		array_push($post_categories, $category->slug);
 	    }
+	    $post_categories = array_unique($post_categories);
 	    // loop array to check if the dogs meta value is present in the category array
-	    foreach ($dogs_categories as $dogs_category) {
+	    foreach ($post_categories as $dogs_category) {
 	    	$isCategoryMatch = array_search($dogs_category, $dogs_meta);
+	    	$isCategoryMatch++;
 	    	if ( $isCategoryMatch ) {
 	    		$articlePoints++;
 	    	}
@@ -441,6 +443,7 @@ function sortArticlesByRelevance() {
 	    // add post ID and associated points to array
 		$posts_with_scores[$post_id] = $articlePoints;
 	  }
+	  wp_reset_postdata();
 	}
 
 	// sort array by articlePoints
